@@ -1,0 +1,134 @@
+<div class="schedule-calendar">
+  <div
+    class="schedule-calendar-content"
+    [ngClass]="{ 'is-collapsed': isCollapsed() }"
+  >
+    <nz-calendar
+      [(ngModel)]="scheduleSelectedDate"
+      nzMode="month"
+      [nzCustomHeader]="customHeader"
+    >
+      <ng-container *nzDateCell="let date">
+        <div class="notification-dot-event" appDateCalendar [date]="date" ></div>
+      </ng-container>
+    </nz-calendar>
+
+    <div class="schedule-calendar-content-footer">
+      <nz-avatar-group>
+        @for (pet of petListFiltered(); track pet.name) {
+        <nz-avatar
+          [nzSize]="40"
+          nzSrc="{{ pet.avatarUrl }}"
+          nzText="{{ pet.name }}"
+          nzShape="circle"
+        >
+        </nz-avatar>
+        } @if(petListLengthDif() > 0) {
+        <nz-avatar
+          [nzSize]="40"
+          [nzText]="'+' + petListLengthDif()"
+          nzShape="circle"
+        >
+        </nz-avatar>
+        }
+      </nz-avatar-group>
+
+      <app-button-icon-circle [styles]="''" (click)="toggleCollapse()">
+        <span class="icon-compress">
+          @if(isCollapsed()) {
+          <app-icon-expand></app-icon-expand>
+          } @else {
+          <app-icon-collapse></app-icon-collapse>
+          }
+        </span>
+      </app-button-icon-circle>
+    </div>
+  </div>
+  <div class="schedule-calendar-event">
+    <div 
+      class="schedule-calendar-event-list" 
+      appDateCalendar 
+      [date]="scheduleSelectedDate()"
+    >
+      <ion-grid style="width: 100%;" class="schedule-calendar-event-list-grid">
+        @for (scheduleItem of scheduleSelected; track scheduleItem.id) {
+          <ion-row class="schedule-calendar-event-list-row" (click)="onSelectScheduleItem(scheduleItem)">
+            <ion-col size="4" class="schedule-calendar-event-list-col">
+              <div class="schedule-calendar-event-list-first">
+                <div class="schedule-calendar-event-list-first-icon">
+                  <img [src]="scheduleItem.event?.icon" [alt]="scheduleItem.event?.alt" />
+                </div>
+                <div class="schedule-calendar-event-list-first-label" >
+                  <span>{{ (scheduleItem.event?.label || '') | translate }}</span>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="6" class="schedule-calendar-event-list-col">
+              <div class="schedule-calendar-event-list-second">
+                <span class="schedule-calendar-event-list-second-time">
+                  {{ scheduleItem.behavior.startDateTime | date : "HH:mm" }}
+                </span>
+                <span class="schedule-calendar-event-list-second-label">
+                  {{ (scheduleItem.event?.label || '') | translate }}
+                </span>
+                <span class="schedule-calendar-event-list-second-desc">
+                  {{ scheduleItem.description || '' }}
+                </span>
+              </div>
+            </ion-col>
+            <ion-col size="2" class="schedule-calendar-event-list-col">
+              <div class="schedule-calendar-event-list-third">
+                <div class="schedule-calendar-event-list-third-name">
+                  {{ scheduleItem.petInfo.name || '' }}
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        }
+      </ion-grid>
+    </div>
+
+    <div 
+      class="schedule-calendar-event-empty" 
+      appDateCalendar 
+      [date]="scheduleSelectedDate()" 
+      [negated]="true"
+    >
+      <span class="schedule-calendar-event-empty-title">{{
+        "SCHEDULE.NOT_FOUND_ACTION" | translate
+      }}</span>
+      <div class="schedule-calendar-event-empty-desc">
+        <p>{{ "SCHEDULE.SCHEDULE_DESC_1" | translate }}</p>
+        <p>{{ "SCHEDULE.SCHEDULE_DESC_2" | translate }}</p>
+      </div>
+      <div class="schedule-calendar-event-empty-button">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #customHeader>
+  <ion-grid class="schedule-calendar-header">
+    <ion-row class="schedule-calendar-header-row">
+      <ion-col size="2" class="schedule-calendar-header-col flex left">
+        <app-button-icon-circle [styles]="''" (click)="onPreviousMonth()">
+          <ion-icon style="font-size: 20px" name="chevron-back"></ion-icon>
+        </app-button-icon-circle>
+      </ion-col>
+
+      <ion-col size="8" class="schedule-calendar-header-col flex center">
+        <span>
+          {{ "SPACE.MONTH" | translate }} {{ scheduleSelectedDate() | date : "MM" }}
+          {{ "SPACE.YEAR" | translate }} {{ scheduleSelectedDate() | date : "yyyy" }}
+        </span>
+      </ion-col>
+
+      <ion-col size="2" class="schedule-calendar-header-col flex right">
+        <app-button-icon-circle [styles]="''" (click)="onNextMonth()">
+          <ion-icon style="font-size: 20px" name="chevron-forward"></ion-icon>
+        </app-button-icon-circle>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-template>

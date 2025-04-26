@@ -1,0 +1,28 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-type-selection-page-content">
+  <div class="schedule-type-selection-page-container">
+    <div class="schedule-type-selection-page-content">
+      <div class="schedule-type-selection-page-header">
+        <span class="schedule-type-selection-page-header-title">
+          {{ "SCHEDULE.YOU_WANT" | translate }}
+        </span>
+        <img src="assets/img/img_01.png" alt="image" />
+      </div>
+
+      <div class="schedule-type-selection-page-list" >
+        @for(scheduleType of scheduleTypeList; track scheduleType.code) {
+          <div class="schedule-type-selection-page-list-item" (click)="onSelectScheduleType(scheduleType)" >
+            <app-button-config-card [icon]="scheduleType.icon" [title]="scheduleType.label" ></app-button-config-card>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</ion-content>

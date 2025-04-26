@@ -1,0 +1,44 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding config-page-content">
+  <div class="config-page-content-main">
+    <img
+      class="config-page-content-icon"
+      src="assets/img/image-config.gif"
+      alt="Icon Cat Waiting"
+    />
+
+    <div class="config-page-content-button">
+      <ion-nav-link router-direction="forward" [component]="sortPetList">
+        <ng-container
+          [ngTemplateOutlet]="buttonConfigTmpl"
+          [ngTemplateOutletContext]="{
+            icon: 'assets/icons/ic-config-sort.png',
+            title: 'SORT_PET'
+          }"
+        ></ng-container>
+      </ion-nav-link>
+    </div>
+
+    <div class="config-page-content-button">
+      <ion-nav-link router-direction="forward" [component]="customizePetCard">
+        <ng-container
+          [ngTemplateOutlet]="buttonConfigTmpl"
+          [ngTemplateOutletContext]="{
+            icon: 'assets/icons/ic-config-tag.png',
+            title: 'CONFIG_TAG'
+          }"
+        ></ng-container>
+      </ion-nav-link>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #buttonConfigTmpl let-icon="icon" let-title="title">
+  <app-button-config-card [icon]="icon" [title]="title" ></app-button-config-card>
+</ng-template>

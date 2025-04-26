@@ -1,0 +1,153 @@
+// input
+.ant-input {
+  border-radius: 8px;
+}
+
+.ant-input,
+.ant-input-number-affix-wrapper {
+  background-color: var(--ion-background-secondary);
+  color: var(--ion-text-secondary);
+  border: 1px solid var(--ion-background-secondary-50);
+}
+
+.ant-input-number {
+  border-radius: 8px;
+  background-color: var(--ion-background-secondary);
+  color: var(--ion-text-secondary);
+  border: 1px solid var(--ion-background-secondary-50);
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: var(--ion-background-secondary);
+  border-radius: 8px;
+  color: var(--ion-text-secondary);
+  border: 1px solid var(--ion-background-secondary-50);
+}
+
+.ant-select.ant-select-multiple .ant-select-selector {
+  color: #333333;
+}
+
+.ant-select-multiple .ant-select-selection-item {
+  border-radius: 6px;
+}
+
+.ant-select-arrow {
+  color: var(--ion-text-secondary);
+}
+
+.ant-form-item-label > label {
+  color: var(--ion-text-color-icon);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.ant-col-24.ant-form-item-label,
+.ant-col-xl-24.ant-form-item-label,
+.ant-form-vertical .ant-form-item-label {
+  padding: 0 0 4px;
+}
+
+.ant-checkbox-wrapper {
+  color: var(--ion-text-secondary);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border: 2px solid var(--ion-background-color);
+  border-top: 0;
+  border-left: 0;
+}
+
+.ant-switch-handle::before {
+  background-color: var(--ion-background-color);
+}
+
+.ant-input-affix-wrapper {
+  background-color: var(--ion-background-secondary);
+  color: var(--ion-text-secondary);
+  border-radius: 8px;
+}
+
+.custom-secondary-color {
+  .ant-picker {
+    color: var(--ion-text-color-icon);
+    background: var(--ion-background-secondary);
+    border: 1px solid var(--ion-background-secondary-50);
+    border-radius: 8px;
+
+    .ant-picker-input>input {
+      color: var(--ion-text-secondary);
+    }
+
+    .ant-picker-clear {
+      color: var(--ion-text-color-icon);
+      background: transparent;
+    }
+
+    .ant-picker-clear>* {
+      color: var(--ion-text-color-icon);
+    }
+
+    .ant-picker-suffix {
+      color: var(--ion-text-color-icon);
+    }
+  }
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner, 
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner, 
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+  color: var(--ion-background-color);
+}
+
+.ant-btn-primary {
+  color: var(--ion-background-color);
+}
+
+.ant-radio-inner {
+  background-color: transparent;
+}
+
+.ant-radio {
+  top: 0;
+}
+
+.radio-2 {
+  .ant-radio {
+    top: 2px;
+  }
+}
+
+.ant-switch-checked {
+  .ant-switch-inner {
+    color: var(--ion-background-secondary);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ant-form-item-label > label {
+    font-size: 10px;
+  }
+
+  .ant-input {
+    font-size: 10px;
+  }
+
+  .ant-select {
+    font-size: 10px;
+  }
+
+  .ant-form label {
+    font-size: 12px;
+  }
+
+  .custom-secondary-color {
+    .ant-picker {
+      padding: 2px 11px;
+    }
+  }
+
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    height: 28px;
+  }
+}

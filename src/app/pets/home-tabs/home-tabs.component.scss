@@ -1,0 +1,25 @@
+:host {
+  .home-tab {
+    &-bar {
+      --background: var(--ion-background-color);
+    }
+
+    ion-tab-button {
+      border-top: 1px solid #172038;
+
+      ion-icon {
+        color: var(--ion-text-color-icon);
+      }
+
+      &.tab-selected {
+        ion-icon {
+          color: var(--ion-text-color);
+        }
+      }
+    }
+  }
+
+  .toolbar-background {
+    background-color: var(--ion-background-color);
+  }
+}

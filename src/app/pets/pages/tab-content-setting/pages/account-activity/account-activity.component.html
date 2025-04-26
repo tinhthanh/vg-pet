@@ -1,0 +1,17 @@
+<app-setting-layout [classMain]="'setting-account'">
+  <ng-container header>
+    <div class="setting-account-header">
+      <div class="setting-account-header-title">
+        <ion-icon name="power-outline"></ion-icon>
+        <span>{{ "SESSION_MANAGEMENT" | translate }}</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container footer>
+    <div class="setting-account-footer">
+      <ion-button (click)="logout()"> {{ "LOGOUT" | translate }} </ion-button>
+      <ion-button (click)="delete()">{{ "DELETE" | translate }}</ion-button>
+    </div>
+  </ng-container>
+</app-setting-layout>

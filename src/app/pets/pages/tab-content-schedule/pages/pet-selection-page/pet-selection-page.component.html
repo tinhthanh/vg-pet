@@ -1,0 +1,45 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="pet-selection-page-container">
+    <div class="pet-selection-page-content">
+      <div class="pet-selection-page-header">
+        <span class="pet-selection-page-header-title">
+          {{ "SCHEDULE.WHO_PET_FOR" | translate }}
+        </span>
+      </div>
+      @if (petList() && petList().length > 0) {
+      <form [formGroup]="formPetSelection">
+        <ion-grid class="pet-selection-page-list">
+          <ion-row class="pet-selection-page-list-row" formArrayName="petList">
+            @for (pet of petList(); track pet.name; let idx = $index) {
+            <ion-col size="6" size-md="4" class="pet-selection-page-list-col">
+              <img
+                [src]="(pet | petAvatarUrl) || ''"
+                [alt]="pet.avatarAlt || ''"
+              />
+              <label nz-checkbox [formControlName]="idx"></label>
+              <span class="pet-selection-page-list-col-name">
+                {{ pet.name || "" }}
+              </span>
+            </ion-col>
+            }
+          </ion-row>
+        </ion-grid>
+      </form>
+
+      <div class="pet-selection-page-footer">
+        <ion-button (click)="submit()">{{
+          "BTN.CONTINUE" | translate
+        }}</ion-button>
+      </div>
+      }
+    </div>
+  </div>
+</ion-content>

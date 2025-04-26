@@ -1,0 +1,170 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding view-pet-information-page-content">
+  <div class="view-pet-information-page-container">
+    <div class="view-pet-information-page-header">
+      <div class="view-pet-information-page-header-icon">
+        <img [src]="petInfoConfig.icon" [alt]="petInfoConfig.alt" />
+      </div>
+      <span class="view-pet-information-page-header-text">
+        {{ petInfoConfig.label | translate }}
+      </span>
+    </div>
+
+    @if(petDetail) {
+    <div class="view-pet-information-page-cards">
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "FIRST_NAME" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ petDetail.name || "" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "GENDER_LABEL" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ (petDetail.gender || "") | translate }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "BREED" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "American Shorthair" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "COLOR" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "DOB" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ petDetail.dob || "" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "AGE_MONTH" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "8 Month" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "AGE_WEEK" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "37" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "AGE" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "12 Human Years" }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "NEUTERED" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "NO" | translate }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+
+      <div class="view-pet-information-page-card">
+        <span class="view-pet-information-page-card-title">
+          {{ "OUTDOOR" | translate }}
+        </span>
+        <div class="view-pet-information-page-card-content">
+          <div class="view-pet-information-page-card-content-value">
+            <span>{{ "NO" | translate }}</span>
+          </div>
+          <app-button-icon-circle>
+            <ion-icon name="copy-outline"></ion-icon>
+          </app-button-icon-circle>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-pet-information-page-buttons">
+      <ion-button (click)="onEdit()">
+        {{ "BTN.EDIT" | translate }}
+      </ion-button>
+    </div>
+    }
+  </div>
+</ion-content>

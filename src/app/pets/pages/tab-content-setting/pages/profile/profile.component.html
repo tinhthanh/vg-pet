@@ -1,0 +1,99 @@
+<app-setting-layout [classMain]="'setting-profile'">
+  <ng-container header>
+    <div class="setting-profile-header">
+      <div class="setting-profile-header-title">
+        <ion-icon name="person-outline"></ion-icon>
+        <span>{{ "MY_INFO" | translate }}</span>
+      </div>
+    </div>
+
+    <div class="setting-profile-link">
+      <span>{{ "RULE_CONDITION" | translate }}</span>
+      <div>{{ "AND" | translate }}</div>
+      <span>{{ "SECURITY_POLICY" | translate }}</span>
+    </div>
+  </ng-container>
+
+  <ng-container content>
+    <div class="setting-profile-form">
+      <form nz-form nzLayout="vertical" [formGroup]="formProfile">
+        <nz-form-item>
+          <nz-form-label> {{ "FIRST_NAME" | translate }} </nz-form-label>
+          <nz-form-control>
+            <input
+              nz-input
+              formControlName="firstName"
+              placeholder="Leonardo"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label> {{ "LAST_NAME" | translate }} </nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="lastName" placeholder="Dicaprio" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label> {{ "EMAIL" | translate }} </nz-form-label>
+          <nz-form-control>
+            <input
+              nz-input
+              formControlName="email"
+              placeholder="leonardo.dicaprio1337@dogcat.com"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>
+            {{ "GENDER" | translate : { length: userGenderList.length } }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="gender"
+            >
+              @for (gender of userGenderList; track gender) {
+              <nz-option
+                [nzValue]="gender"
+                [nzLabel]="gender | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>
+            {{ "I_AM_OF_PET" | translate : { length: userRelationList.length } }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="relation"
+              nzMode="multiple"
+              [nzMaxTagCount]="2"
+              [nzMaxTagPlaceholder]="relationTagPlaceholder"
+            >
+              @for (relation of userRelationList; track relation) {
+              <nz-option
+                [nzValue]="relation"
+                [nzLabel]="relation | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </ng-container>
+
+  <ng-container footer>
+    <div class="setting-profile-footer">
+      <ion-button color="light">{{ "RESET" | translate }}</ion-button>
+      <ion-button (click)="submit()" >{{ "SAVE" | translate }}</ion-button>
+    </div>
+  </ng-container>
+</app-setting-layout>
+
+<ng-template #relationTagPlaceholder let-selectedList>
+  {{ selectedList.length }} {{ "MORE" | translate }}
+</ng-template>

@@ -1,0 +1,164 @@
+.view-pet-information-page {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    min-height: 92px;
+    margin-bottom: 20px;
+
+    &-icon {
+      width: 100px;
+      height: 100px;
+      padding: 16px;
+      border-radius: 50%;
+      background-color: var(--yellow-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        filter: drop-shadow(0px 2px 2px var(--ion-text-contrast));
+      }
+    }
+
+    &-text {
+      min-width: 80px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 20px;
+      color: var(--ion-background-color);
+      background-color: var(--ion-text-color);
+    }
+  }
+
+  &-cards {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--ion-background-secondary);
+    border-radius: 12px;
+    height: auto;
+    width: 370px;
+    min-width: var(--width-card-min);
+    max-width: var(--width-card-max);
+    min-height: 50px;
+  }
+
+  &-card {
+    &-title {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ion-text-secondary);
+    }
+
+    &-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      gap: 8px;
+
+      &-value {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--ion-text-secondary);
+        padding: 8px 16px;
+        background-color: var(--ion-background-color);
+        border-radius: 8px;
+        max-width: 92%;
+      }
+    }
+
+    app-button-icon-circle {
+      .button-icon-circle {
+        background-color: var(--ion-background-color);
+
+        ion-icon {
+          color: var(--ion-text-color);
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+    ion-button {
+      min-height: 2.5em;
+      font-weight: 700;
+      min-width: 92px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .view-pet-information-page {
+    &-container {
+      height: auto;
+    }
+
+    &-header {
+      padding: 12px;
+      margin-bottom: 4px;
+
+      &-icon {
+        width: 80px;
+        height: 80px;
+        padding: 12px;
+      }
+
+      &-text {
+        font-size: 14px;
+      }
+    }
+
+    &-cards {
+      width: unset;
+    }
+
+    &-card {
+      &-title {
+        font-size: 12px;
+      }
+
+      &-content {
+        &-value {
+          font-size: 12px;
+          padding: 8px 12px;
+          color: var(--ion-text-secondary);
+        }
+      }
+
+      app-button-icon-circle {
+        .button-icon-circle {
+          ion-icon {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

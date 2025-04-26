@@ -1,0 +1,254 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-weight-remind-page-content">
+  <div class="schedule-weight-remind-page-container">
+    <div class="schedule-weight-remind-page-content">
+      <div class="schedule-weight-remind-page-header">
+        <span class="schedule-weight-remind-page-header-title">
+          {{ "SCHEDULE.WEIGHT.TITLE" | translate }}
+        </span>
+      </div>
+
+      <div class="schedule-weight-remind-page-type">
+        <div
+          class="schedule-weight-remind-page-type-item"
+          [ngClass]="{ active: typeControl.value === weightType.HUMAN_WEIGHT }"
+          (click)="typeControl.setValue(weightType.HUMAN_WEIGHT)"
+        >
+          <div class="schedule-weight-remind-page-type-item-icon">
+            <img src="assets/img/paw_finger.png" alt="Paw Finger" />
+          </div>
+
+          <span class="schedule-weight-remind-page-type-item-label">
+            {{ "SCHEDULE.WEIGHT.HUMAN_AND_PET" | translate }}
+          </span>
+        </div>
+
+        <div
+          class="schedule-weight-remind-page-type-item"
+          [ngClass]="{ active: typeControl.value === weightType.PET_WEIGHT }"
+          (click)="typeControl.setValue(weightType.PET_WEIGHT)"
+        >
+          <div class="schedule-weight-remind-page-type-item-icon">
+            <img src="assets/img/paw.png" alt="Paw Finger" />
+          </div>
+
+          <span class="schedule-weight-remind-page-type-item-label">
+            {{ "SCHEDULE.WEIGHT.PET_ONLY" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="schedule-weight-remind-page-form">
+        <form [formGroup]="formScheduleWeight">
+          <ion-grid>
+            @if(typeControl.value === weightType.PET_WEIGHT) {
+            <ion-row
+              class="schedule-weight-remind-page-form-field"
+              formGroupName="petWeight"
+            >
+              <ion-col size="12">
+                <span class="schedule-weight-remind-page-form-field-label">
+                  {{ "SCHEDULE.WEIGHT.FIELD_PET_WEIGHT" | translate }}
+                </span>
+              </ion-col>
+
+              <ion-col size="6">
+                <div
+                  formGroupName="first"
+                  class="schedule-weight-remind-page-form-field-weight"
+                >
+                  <nz-input-number
+                    style="width: 100%"
+                    formControlName="value"
+                    nzAddOnAfter="kg"
+                  >
+                  </nz-input-number>
+                </div>
+              </ion-col>
+
+              <ion-col size="6">
+                <div
+                  formGroupName="second"
+                  class="schedule-weight-remind-page-form-field-weight-item"
+                >
+                  <nz-input-number
+                    style="width: 100%"
+                    formControlName="value"
+                    nzAddOnAfter="oz"
+                  >
+                  </nz-input-number>
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="12">
+                <div class="schedule-weight-remind-page-form-title">
+                  <span>
+                    {{ "SCHEDULE.WEIGHT.WEIGHT_PET_TITLE" | translate }}
+                  </span>
+                </div>
+              </ion-col>
+
+              <ion-col size="12">
+                <div class="schedule-weight-remind-page-form-weight-value">
+                  <span>
+                    {{ petWeightFirst.value.value || 0 }}
+                    {{ petWeightFirst.value.unit || "" }}
+                    {{ petWeightSecond.value.value || 0 }}
+                    {{ petWeightSecond.value.unit || "" }}
+                  </span>
+                </div>
+              </ion-col>
+            </ion-row>
+            } @if(typeControl.value === weightType.HUMAN_WEIGHT) {
+            <ion-row
+              class="schedule-weight-remind-page-form-field"
+              formGroupName="humanAndPetWeight"
+            >
+              <ion-col size="12">
+                <span class="schedule-weight-remind-page-form-field-label">
+                  {{ "SCHEDULE.WEIGHT.FIELD_HUMAN_AND_PET" | translate }}
+                </span>
+              </ion-col>
+
+              <ion-col size="6">
+                <div
+                  formGroupName="first"
+                  class="schedule-weight-remind-page-form-field-weight"
+                >
+                  <nz-input-number
+                    style="width: 100%"
+                    formControlName="value"
+                    nzAddOnAfter="kg"
+                  >
+                  </nz-input-number>
+                </div>
+              </ion-col>
+
+              <ion-col size="6">
+                <div
+                  formGroupName="second"
+                  class="schedule-weight-remind-page-form-field-weight-item"
+                >
+                  <nz-input-number
+                    style="width: 100%"
+                    formControlName="value"
+                    nzAddOnAfter="oz"
+                  >
+                  </nz-input-number>
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <ion-row
+              class="schedule-weight-remind-page-form-field"
+              formGroupName="humanWeight"
+            >
+              <ion-col size="12">
+                <span class="schedule-weight-remind-page-form-field-label">
+                  {{ "SCHEDULE.WEIGHT.FIELD_HUMAN_WEIGHT" | translate }}
+                </span>
+              </ion-col>
+
+              <ion-col size="6">
+                <div
+                  formGroupName="first"
+                  class="schedule-weight-remind-page-form-field-weight"
+                >
+                  <nz-input-number
+                    style="width: 100%"
+                    formControlName="value"
+                    nzAddOnAfter="kg"
+                  >
+                  </nz-input-number>
+                </div>
+              </ion-col>
+
+              <ion-col size="6">
+                <div
+                  formGroupName="second"
+                  class="schedule-weight-remind-page-form-field-weight-item"
+                >
+                  <nz-input-number
+                    style="width: 100%"
+                    formControlName="value"
+                    nzAddOnAfter="oz"
+                  >
+                  </nz-input-number>
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="12">
+                <div class="schedule-weight-remind-page-form-title">
+                  <span>
+                    {{ "SCHEDULE.WEIGHT.WEIGHT_PET_TITLE" | translate }}
+                  </span>
+                </div>
+              </ion-col>
+
+              <ion-col size="12">
+                <div class="schedule-weight-remind-page-form-weight-value">
+                  <span>
+                    {{
+                      (humanAndPetWeightFirst.value.value || 0) -
+                        (humanWeightFirst.value.value || 0)
+                    }}
+                    {{ humanAndPetWeightFirst.value.unit || "" }}
+                    {{
+                      (humanAndPetWeightSecond.value.value || 0) -
+                        (humanWeightSecond.value.value || 0)
+                    }}
+                    {{ humanAndPetWeightSecond.value.unit || "" }}
+                  </span>
+                </div>
+              </ion-col>
+            </ion-row>
+            }
+
+            <ion-row>
+              <ion-col size="12">
+                <span class="schedule-weight-remind-page-form-field-label">
+                  {{ "SCHEDULE.WEIGHT.FIELD_DATE_TIME" | translate }}
+                </span>
+              </ion-col>
+              <ion-col size="12" class="custom-secondary-color">
+                <nz-date-picker
+                  style="width: 100%"
+                  [nzShowTime]="{ nzFormat: 'HH:mm' }"
+                  [nzFormat]="'dd/MM/yyyy HH:mm'"
+                  formControlName="dateTime"
+                  [nzPlaceHolder]="
+                    'SCHEDULE.WEIGHT.WEIGHT_PET_PLACEHOLDER' | translate
+                  "
+                ></nz-date-picker>
+              </ion-col>
+
+              <ion-col size="12">
+                <span class="schedule-weight-remind-page-form-field-label">
+                  {{ "SCHEDULE.WEIGHT.FIELD_NOTE" | translate }}
+                </span>
+              </ion-col>
+              <ion-col size="12">
+                <input nz-input formControlName="note" style="width: 100%" />
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </div>
+
+      <div class="schedule-weight-remind-page-footer">
+        <ion-button (click)="submit()"> {{ "BTN.SAVE" | translate }} </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

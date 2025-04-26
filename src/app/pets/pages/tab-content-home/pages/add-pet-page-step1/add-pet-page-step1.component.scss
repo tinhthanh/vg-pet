@@ -1,0 +1,150 @@
+.add-pet-page-step1 {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-img {
+    margin: 20px 0;
+    width: 132px;
+    height: 132px;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+      text-align: center;
+    }
+  }
+
+  &-form {
+    min-width: 300px;
+    max-width: 350px;
+
+    &-field {
+      &-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ion-text-color-icon);
+        margin-bottom: 8px;
+      }
+    }
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 16px;
+
+      span {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ion-text-secondary);
+        margin-bottom: 8px;
+        text-align: center;
+      }
+    }
+
+    .radio-2 {
+      label {
+        gap: 8px;
+        color: var(--ion-text-secondary);
+      }
+    }
+
+    form {
+      width: 100%;
+    }
+
+    span {
+      color: var(--ion-text-color-icon);
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+    ion-button {
+      min-height: 2.5em;
+      font-weight: 700;
+      min-width: 92px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .add-pet-page-step1 {
+    &-container {
+      height: auto;
+    }
+
+    &-header {
+      &-title {
+        font-size: 16px;
+      }
+    }
+
+    &-item {
+      &-title {
+        font-size: 16px;
+      }
+
+      &-desc {
+        font-size: 12px;
+      }
+    }
+
+    &-img {
+      margin: 4px 0;
+      width: 120px;
+      height: 120px;
+    }
+
+    &-form {
+      min-width: 300px;
+      width: 60%;
+
+      &-field {
+        &-label {
+          font-size: 12px;
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+      }
+
+      form {
+        width: 100%;
+      }
+
+      span {
+        color: var(--ion-text-color-icon);
+      }
+    }
+  }
+}

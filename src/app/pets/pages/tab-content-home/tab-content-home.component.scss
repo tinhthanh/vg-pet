@@ -1,0 +1,36 @@
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-search {
+    min-width: var(--width-card-min);
+    max-width: var(--width-card-max);
+    margin: 0 auto;
+  }
+
+  &-not-found {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ion-text-secondary);
+  }
+}
+
+:host {
+  .home-content {
+    &-search {
+      .sc-ion-searchbar-ios-h {
+        -webkit-padding-start: 1px;
+        -webkit-padding-end: 1px;
+        padding-inline-start: 1px;
+        padding-inline-end: 1px;
+        --box-shadow: 0px 0px 0px 1px var(--ion-text-color);
+      }
+    }
+  }
+}

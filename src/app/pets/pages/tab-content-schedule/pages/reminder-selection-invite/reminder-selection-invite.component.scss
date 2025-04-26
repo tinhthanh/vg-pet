@@ -1,0 +1,127 @@
+.schedule-reminder-selection-invite {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 12px;
+    width: 100%;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    &-desc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+      margin-bottom: 12px;
+      text-align: center;
+      width: 65%;
+      min-width: 250px;
+      padding: 0 20px;
+    }
+
+    &-image {
+      height: 250px;
+      margin-bottom: 16px;
+    }
+
+    ion-button {
+      min-width: 100px;
+      min-height: 2.5em;
+      font-weight: 700;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    ion-button {
+      min-width: 100px;
+      min-height: 2.5em;
+      font-weight: 700;
+    }
+  }
+
+  &-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 60%;
+    padding: 0 32px;
+    margin: 32px auto;
+
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      gap: 8px;
+      background-color: var(--ion-text-color);
+      padding: 8px 12px;
+      border-radius: 20px;
+
+      img {
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0px 2px 2px var(--ion-text-contrast));
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2px;
+        color: var(--ion-text-contrast);
+      }
+
+      &.active {
+        background-color: var(--green-color);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .schedule-reminder-selection-invite {
+    &-container {
+      height: auto;
+    }
+  }
+}

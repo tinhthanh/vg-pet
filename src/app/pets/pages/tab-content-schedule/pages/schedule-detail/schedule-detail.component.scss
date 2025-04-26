@@ -1,0 +1,194 @@
+.schedule-detail {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+    }
+  }
+
+  &-card {
+    padding: 0 40px;
+
+    &-icon {
+      width: 52px;
+      height: 52px;
+      padding: 4px;
+      border-radius: 50%;
+      background-color: var(--yellow-color);
+      
+      img {
+        filter: drop-shadow(0px 2px 2px var(--ion-text-contrast));
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      &-time {
+        text-align: center;
+        color: var(--ion-text-secondary);
+        margin-bottom: 12px;
+      }
+
+      &-tag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        color: var(--ion-background-color);
+        font-weight: 600;
+
+        &-label {
+          padding: 4px 8px;
+          border-radius: 20px;
+          background-color: var(--ion-text-color);
+        }
+
+        &-scheduled {
+          padding: 4px 8px;
+          border-radius: 20px;
+          background-color: var(--red-color-50);
+        }
+      }
+    }
+  }
+
+  &-button {
+    margin-top: 20px;
+    padding: 0 20px !important;
+
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+
+      app-button-icon-circle {
+        .button-icon-circle {
+          background-color: var(--ion-background-color);
+
+          ion-icon {
+            color: var(--ion-text-color-icon);
+            font-size: 16px;
+          }
+        }
+      }
+
+      &-label {
+        min-width: 80px;
+        text-align: center;
+        font-weight: 600;
+        padding: 4px;
+        border-radius: 20px;
+        color: var(--ion-background-color);
+        background-color: var(--ion-text-color-icon);
+      }
+
+      &.active {
+        app-button-icon-circle {
+          .button-icon-circle {
+            ion-icon {
+              color: var(--ion-text-color);
+            }
+          }
+        }
+  
+        .schedule-detail-button-item-label {
+          color: var(--ion-background-color);
+          background-color: var(--ion-text-color);
+        }
+      }
+    }
+  }
+
+  &-desc {
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+
+    ion-button {
+      min-height: 2.5em;
+      font-weight: 700;
+
+
+      &.btn-skip {
+        --background: var(--theme-grey-color);
+      }
+    }
+  }
+
+}
+
+.schedule-card {
+  width: 80%;
+  min-width: var(--width-card-min);
+  max-width: var(--width-card-max);
+  min-height: 100px;
+  padding: 8px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-radius: 16px;
+  background-color: var(--ion-background-secondary);
+}
+
+
+
+@media only screen and (max-width: 500px) {
+  .schedule-desc-page {
+    &-container {
+      height: auto;
+    }
+  }
+
+  .schedule-card {
+    padding: 8px 20px;
+  }
+
+  .schedule-detail {
+    &-card {
+      &-icon {
+        padding: 8px;
+      }
+    }
+  }
+}

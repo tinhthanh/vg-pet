@@ -1,0 +1,30 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding stats-list-pet-card-content">
+  <div class="stats-list-pet-card-container">
+    <div class="stats-list-pet-card-header">
+      <span class="stats-list-pet-card-header-title">
+        {{ ("SLOT_STATS.TITLE" | translate) + " " + (slotNumber + 1 || 1) }}
+      </span>
+    </div>
+
+    <div class="stats-list-pet-card-list">
+      @for (statsItem of statsInfoConfigList; track statsItem.icon) {
+      <div class="stats-list-pet-card-item" (click)="selectStatsItem(statsItem)" >
+        <div class="stats-list-pet-card-item-icon">
+          <img [src]="statsItem.icon" [alt]="statsItem.alt" />
+        </div>
+        <span class="stats-list-pet-card-item-label">
+          {{ statsItem.label | translate }}
+        </span>
+      </div>
+      }
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+<div class="view-pet-detail-info-content" >
+  <div class="view-pet-detail-info-content-nav">
+    <app-view-pet-detail-nav [petDetail]="petDetail" ></app-view-pet-detail-nav>
+  </div>
+  <div class="view-pet-detail-info-content-container" >
+    <div class="view-pet-detail-info-content-list" >
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="view-pet-detail-info-content-title" >
+            <span>{{ "VIEW_PET_DETAIL.MY_PET_TRAITS" | translate }}</span>
+            <app-button-icon-circle (click)="onToggleDesc()" >
+              <ion-icon name="information-circle-outline"></ion-icon>
+            </app-button-icon-circle>
+          </ion-col>
+          @for(petInfo of petInfoConfigList; track petInfo; let i = $index) {
+            <ion-col 
+              size="12" 
+              sizeMd="6"
+              class="view-pet-detail-info-content-box" 
+              (click)="onNav(i)"
+            >
+              <div class="view-pet-detail-info-content-item">
+                <div class="view-pet-detail-info-content-item-icon" >
+                  <img [src]="petInfo.icon" [alt]="petInfo.alt" />
+                </div>
+                <div class="view-pet-detail-info-content-item-content">
+                  <span class="view-pet-detail-info-content-item-label">
+                    {{ (petInfo.label) ? (petInfo.label | translate) : '' }}
+                  </span>
+                  @if(isShowDesc) {
+                    <span class="view-pet-detail-info-content-item-desc">
+                      {{ (petInfo.desc) ? (petInfo.desc | translate) : '' }}
+                    </span>
+                  }
+                </div>
+              </div>
+            </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</div> 

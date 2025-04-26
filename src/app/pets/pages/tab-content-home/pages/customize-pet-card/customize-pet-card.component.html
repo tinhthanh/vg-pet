@@ -1,0 +1,34 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding customize-pet-card-content">
+  <div class="customize-pet-card-container">
+    <div class="customize-pet-card-header">
+      <span class="customize-pet-card-header-title">
+        {{ "CUSTOMIZE_PET_CARD.TITLE" | translate }}
+      </span>
+
+      <span class="customize-pet-card-header-desc">
+        {{ "CUSTOMIZE_PET_CARD.DESC" | translate }}
+      </span>
+    </div>
+
+    <div class="customize-pet-card-detail">
+      <app-pet-card-profile
+        [petDetail]="null"
+        [isConfig]="true"
+        [statsInfo]="statsInfoConfig"
+      ></app-pet-card-profile>
+    </div>
+    <div class="customize-pet-card-btn">
+      <ion-button (click)="setDefault()" >
+        {{ "CUSTOMIZE_PET_CARD.SET_DEFAULT" | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,106 @@
+.sort-pet-page {
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-header,
+  &-list {
+    width: var(--width-layout);
+    max-width: var(--width-layout-max);
+    min-width: var(--width-layout-min);
+    padding: 0 20px;
+  }
+
+  &-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    &-title {
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--ion-text-secondary);
+    }
+
+    &-desc {
+      text-align: center;
+      color: var(--ion-text-secondary);
+      margin-bottom: 32px;
+      padding: 0 32px;
+    }
+  }
+
+  &-list {
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  &-item {
+    height: 48px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+
+    ion-icon {
+      font-size: 20px;
+      color: var(--ion-text-secondary);
+    }
+
+    &-content {
+      height: 100%;
+      min-width: 30%;
+      background-color: var(--ion-text-color);
+      border-radius: 24px;
+      padding: 4px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      margin-right: 32px;
+    }
+
+    &-avatar {
+      height: 44px;
+      width: 44px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4666666667);
+      -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4666666667);
+      -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4666666667);
+    }
+
+    &-name {
+      color: var(--ion-background-color);
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .sort-pet-page {
+    &-content {
+      height: auto;
+    }
+  }
+}

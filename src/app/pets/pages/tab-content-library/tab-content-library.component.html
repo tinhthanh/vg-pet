@@ -1,0 +1,94 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button id="modal-config-lib" expand="block">
+        <app-button-icon-circle>
+          <ng-container>
+            <ion-icon
+              slot="icon-only"
+              size="small"
+              name="settings-outline"
+            ></ion-icon>
+          </ng-container>
+        </app-button-icon-circle>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding lib-content">
+  <div class="lib-container">
+    <ion-nav-link
+      routerDirection="forward"
+      [component]="libraryInteresting"
+    >
+      <div class="lib-about-card">
+        <div class="lib-about-card-content">
+          <span class="lib-about-card-title">
+            {{ "LIB_PAGE.ABOUT_PET" | translate }}
+          </span>
+          <span class="lib-about-card-desc">
+            {{ "LIB_PAGE.ABOUT_PET_DESC" | translate }}
+          </span>
+          <span class="lib-about-card-desc">
+            {{ "LIB_PAGE.ABOUT_PET_DESC_CONTINUE" | translate }}
+          </span>
+        </div>
+        <div class="lib-about-card-button">
+          <app-button-icon-circle>
+            <ng-container>
+              <ion-icon
+                slot="icon-only"
+                size="small"
+                name="chevron-forward-outline"
+              ></ion-icon>
+            </ng-container>
+          </app-button-icon-circle>
+        </div>
+      </div>
+    </ion-nav-link>
+
+    <ion-grid>
+      <ion-row>
+        @for (item of listPetLib; track item.title) {
+        <ion-col size="6" sizeMd="3">
+          <ion-nav-link
+            routerDirection="forward"
+            [component]="libraryDetail"
+            [componentProps]="{ libDetail: item }"
+          >
+            <div class="lib-card">
+              <div
+                class="lib-card-image"
+                [style]="'background-image: url(' + item.picture + ');'"
+              ></div>
+              <span class="lib-card-title">{{ item.title }}</span>
+            </div>
+          </ion-nav-link>
+        </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-modal
+  #modal
+  trigger="modal-config-lib"
+  [initialBreakpoint]="0.75"
+  [breakpoints]="[0, 0.75]"
+>
+  <ng-template>
+    <ion-content class="ion-padding">
+      <div class="config-lib-content">
+        <span class="config-lib-content-title">
+          {{ "LIB_PAGE.CONFIG_LEARN" | translate }}
+        </span>
+        <span class="config-lib-content-desc">
+          {{ "LIB_PAGE.NOTIFICATION_PET_WEEK" | translate }}
+        </span>
+        <nz-switch [ngModel]="false"></nz-switch>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class="schedule-reminder-selection-page">
+  <div class="schedule-reminder-selection-page-container">
+    <div class="schedule-reminder-selection-page-content">
+      <div class="schedule-reminder-selection-page-header">
+        <span class="schedule-reminder-selection-page-header-title">
+          {{ "SCHEDULE.REMINDER.PERMISSION_ACCESS" | translate }}
+        </span>
+        <span class="schedule-reminder-selection-page-header-desc">
+          {{ "SCHEDULE.REMINDER.PERMISSION_ACCESS_DESC" | translate: { name: petDetail?.name } }}
+        </span>
+        <ion-nav-link 
+          router-direction="forward" 
+          [component]="reminderSelectionInviteComponent" 
+          [componentProps]="{
+            schedule: schedule
+          }"
+        >
+          <ion-button>
+            {{ "BTN.INVITE" | translate }}
+          </ion-button>
+        </ion-nav-link>
+
+        <img class="schedule-reminder-selection-page-header-image" src="assets/img/img_06.png" alt="image" />
+
+        <span class="schedule-reminder-selection-page-header-title">
+          {{ "SCHEDULE.REMINDER.TRANSFER_PERMISSION_ACCESS" | translate }}
+        </span>
+        <span class="schedule-reminder-selection-page-header-desc">
+          {{ "SCHEDULE.REMINDER.TRANSFER_PERMISSION_ACCESS_DESC" | translate: { name: petDetail?.name } }}
+        </span>
+        <ion-nav-link 
+          router-direction="forward" 
+          [component]="reminderSelectionInviteComponent" 
+          [componentProps]="{
+            schedule: schedule
+          }"
+        >
+          <ion-button>
+            {{ "BTN.TRANSFER" | translate }}
+          </ion-button>
+        </ion-nav-link>
+      </div>
+    </div>
+  </div>
+</ion-content>

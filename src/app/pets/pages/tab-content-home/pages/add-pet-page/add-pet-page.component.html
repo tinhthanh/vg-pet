@@ -1,0 +1,51 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding add-pet-page-content">
+  <div class="add-pet-page-container">
+    <div class="add-pet-page-content">
+      <div class="add-pet-page-item">
+        <span class="add-pet-page-item-title">
+          {{ "ADD_PET.TITLE" | translate }}
+        </span>
+
+        <span class="add-pet-page-item-desc">
+          {{ "ADD_PET.DESC" | translate }}
+        </span>
+      </div>
+
+      <div class="add-pet-page-buttons">
+        <ion-nav-link router-direction="forward" [component]="addPetPageStep1">
+          <ion-button>
+            {{ "BTN.CREATE" | translate }}
+          </ion-button>
+        </ion-nav-link>
+      </div>
+
+      <img class="add-pet-page-img" src="assets/img/img_11.png" alt="image" />
+
+      <div class="add-pet-page-item">
+        <span class="add-pet-page-item-title">
+          {{ "ADD_PET.AVAILABLE" | translate }}
+        </span>
+
+        <span class="add-pet-page-item-desc">
+          {{ "ADD_PET.DESC_AVAILABLE" | translate }}
+        </span>
+      </div>
+
+      <div class="add-pet-page-buttons">
+        <ion-nav-link router-direction="forward" [component]="addPetPageStep1">
+          <ion-button>
+            {{ "BTN.ENTER" | translate }}
+          </ion-button>
+        </ion-nav-link>
+      </div>
+    </div>
+  </div>
+</ion-content>

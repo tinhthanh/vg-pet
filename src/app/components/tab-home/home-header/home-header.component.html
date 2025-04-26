@@ -1,0 +1,51 @@
+<form [formGroup]="formInput">
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-nav-link router-direction="forward" [component]="configPage">
+        <ion-button>
+          <app-button-icon-circle>
+            <ng-container>
+              <ion-icon
+                slot="icon-only"
+                size="small"
+                name="settings-outline"
+              ></ion-icon>
+            </ng-container>
+          </app-button-icon-circle>
+        </ion-button>
+      </ion-nav-link>
+
+      <ion-button (click)="setShowSearch()">
+        <app-button-icon-circle>
+          <ng-container>
+            <ion-icon slot="icon-only" size="small" name="search"></ion-icon>
+          </ng-container>
+        </app-button-icon-circle>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-segment formControlName="segmentType" style="padding: 0 2px">
+      <ion-segment-button [value]="segmentTypeEnum.DISPLAY">
+        <ion-label>{{ segmentTypeEnum.DISPLAY | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="segmentTypeEnum.HIDDEN">
+        <ion-label>{{ segmentTypeEnum.HIDDEN | translate }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-buttons slot="primary">
+      <ion-button>
+        <div style="width: 32px"></div>
+      </ion-button>
+      <ion-nav-link router-direction="forward" [component]="addPetPage">
+        <ion-button>
+          <app-button-icon-circle>
+            <ng-container>
+              <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+            </ng-container>
+          </app-button-icon-circle>
+        </ion-button>
+      </ion-nav-link>
+    </ion-buttons>
+  </ion-toolbar>
+</form>

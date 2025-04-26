@@ -1,0 +1,47 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding view-pet-detail-export-content">
+  <div class="view-pet-detail-export-container">
+    <div class="view-pet-detail-export-header">
+      <span class="view-pet-detail-export-header-title">
+        {{ "VIEW_PET_DETAIL.EXPORT_PET_DETAIL" | translate }}
+      </span>
+    </div>
+
+    <div class="view-pet-detail-export-cards">
+      <div class="view-pet-detail-export-card">
+        <div class="view-pet-detail-export-icon">
+          <img src="assets/img/pdf.png" alt="pdf" />
+        </div>
+
+        <div class="view-pet-detail-export-card-content">
+          <span class="view-pet-detail-export-card-content-title">PDF</span>
+          <span class="view-pet-detail-export-card-content-desc">
+            Xuất trong một tệp PDF duy nhất đến email của bạn và chia sẻ với
+            người chăm sóc, bác sĩ thú y, bạn bè, v.v.
+          </span>
+        </div>
+      </div>
+
+      <div class="view-pet-detail-export-card">
+        <div class="view-pet-detail-export-icon">
+          <img src="assets/img/csv.png" alt="csv" />
+        </div>
+
+        <div class="view-pet-detail-export-card-content">
+          <span class="view-pet-detail-export-card-content-title">CSV</span>
+          <span class="view-pet-detail-export-card-content-desc">
+            Xuất dưới dạng CSV, chạy phân tích của riêng bạn trong Excel/Google
+            Sheets và thực hiện các quy trình nâng cao...
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

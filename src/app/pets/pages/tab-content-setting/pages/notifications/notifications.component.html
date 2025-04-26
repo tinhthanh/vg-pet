@@ -1,0 +1,32 @@
+<div class="setting-notification">
+  <div class="setting-notification-container">
+    <div class="setting-notification-title">
+      {{ "NOTIFICATION" | translate }}
+    </div>
+
+    <form
+      nz-form
+      nzLayout="vertical"
+      [formGroup]="formNotification"
+      class="setting-notification-form"
+    >
+      <div class="setting-notification-form-field field-switch">
+        <label>{{ "LEARNING_SETTING" | translate }}</label>
+        <nz-switch formControlName="learningConfig"></nz-switch>
+        <span>{{ "LEARNING_SETTING_DESC" | translate }}</span>
+      </div>
+
+      <div class="setting-notification-form-field field-switch">
+        <label>{{ "APP_UPDATE" | translate }}</label>
+        <nz-switch formControlName="appUpdate"></nz-switch>
+        <span>{{ "APP_UPDATE_DESC" | translate }}</span>
+      </div>
+
+      <div class="setting-notification-form-field field-switch">
+        <label>{{ "VIBRATE_NOTIFICATION_APP" | translate }}</label>
+        <nz-switch formControlName="vibrateNotification"></nz-switch>
+        <span>{{ "VIBRATE_NOTIFICATION_DESC" | translate }}</span>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,127 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding view-pet-detail-edit-content">
+  <div class="view-pet-detail-edit-container">
+    <div class="view-pet-detail-edit-header">
+      <span class="view-pet-detail-edit-header-title">
+        {{ "VIEW_PET_DETAIL.PET_INFO" | translate }}
+      </span>
+    </div>
+
+    <div class="view-pet-detail-edit-form">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <span class="view-pet-detail-edit-form-label">
+              {{ "FIRST_NAME" | translate }}
+            </span>
+          </ion-col>
+          <ion-col size="12">
+            <input nz-input style="width: 100%" [ngModel]="petDetail ? petDetail.name : ''" />
+          </ion-col>
+
+          <ion-col size="12">
+            <div class="control-radio">
+              <span class="view-pet-detail-edit-form-title"> Gender: </span>
+              <nz-radio-group
+                class="radio-2"
+                [ngModel]="petDetail ? petDetail.gender : petGenderEnum.MALE"
+              >
+                <label nz-radio [nzValue]="petGenderEnum.FEMALE">
+                  <span [innerHTML]="'FEMALE' | genderIcon"> </span>
+                  {{ "FEMALE" | translate }}
+                </label>
+                <label nz-radio [nzValue]="petGenderEnum.MALE">
+                  <span [innerHTML]="'MALE' | genderIcon"> </span>
+                  {{ "MALE" | translate }}
+                </label>
+              </nz-radio-group>
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <span class="view-pet-detail-edit-form-label">
+              {{ "ADD_PET.BREED" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12">
+            <nz-select style="width: 100%" [ngModel]="petTypeData[0]">
+              @for(typeOption of petTypeData; track typeOption) {
+              <nz-option
+                [nzValue]="typeOption"
+                [nzLabel]="typeOption | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </ion-col>
+
+          <ion-col size="12">
+            <span class="view-pet-detail-edit-form-label">
+              {{ "ADD_PET.COLOR" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12">
+            <input nz-input style="width: 100%" />
+          </ion-col>
+
+          <ion-col size="12">
+            <div class="control-radio">
+              <span class="view-pet-detail-edit-form-title"> Type: </span>
+              <nz-radio-group class="radio-2" [ngModel]="'INDOOR'">
+                <label nz-radio nzValue="INDOOR">
+                  {{ "ADD_PET.INDOOR" | translate }}
+                </label>
+                <label nz-radio nzValue="OUTDOOR">
+                  {{ "ADD_PET.OUTDOOR" | translate }}
+                </label>
+              </nz-radio-group>
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <div class="control-radio">
+              <span class="view-pet-detail-edit-form-title"> Sterilized: </span>
+              <nz-radio-group class="radio-2" [ngModel]="'NO'">
+                <label nz-radio nzValue="NO">
+                  {{ "NO" | translate }}
+                </label>
+                <label nz-radio nzValue="YES">
+                  {{ "YES" | translate }}
+                </label>
+              </nz-radio-group>
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <span class="view-pet-detail-edit-form-label">
+              {{ "DOB" | translate }}
+            </span>
+          </ion-col>
+          <ion-col size="12" class="custom-secondary-color">
+            <nz-date-picker
+              style="width: 100%"
+              [ngModel]="dob()"
+              [nzShowTime]="{ nzFormat: 'HH:mm' }"
+              [nzFormat]="'dd/MM/yyyy HH:mm'"
+              [nzPlaceHolder]="'DOB' | translate"
+            ></nz-date-picker>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="view-pet-detail-edit-buttons">
+      <ion-button (click)="onSubmit()">
+        {{ "BTN.SAVE" | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding view-pet-detail-save-content">
+  <div class="view-pet-detail-save-container">
+    <div class="view-pet-detail-save-header">
+      <span class="view-pet-detail-save-header-title">
+        {{ "VIEW_PET_DETAIL.RECORD_KEEPING_PET" | translate }}
+      </span>
+    </div>
+
+    <div class="view-pet-detail-save-form">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <span class="view-pet-detail-save-form-title">
+              {{
+                ("VIEW_PET_DETAIL.WHY_DO_YOU_WANT_TO_HIDE" | translate) +
+                  (petDetail ? petDetail.name : "")
+              }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12"></ion-col>
+
+          <ion-col size="12">
+            <div class="control-radio">
+              <nz-radio-group class="radio-2">
+                <label nz-radio [nzValue]="'DEAD'">
+                  {{ "VIEW_PET_DETAIL.DEAD" | translate }}
+                </label>
+                <label nz-radio [nzValue]="'OTHER_REASON'">
+                  {{ "VIEW_PET_DETAIL.OTHER_REASON" | translate }}
+                </label>
+              </nz-radio-group>
+            </div>
+          </ion-col>
+
+          <ion-col size="12"></ion-col>
+
+          <ion-col size="12">
+            <span class="view-pet-detail-save-form-label">
+              {{ "VIEW_PET_DETAIL.WHAT_HAPPENED" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12">
+            <input nz-input style="width: 100%" />
+            <span class="view-pet-detail-save-form-label">
+              {{ "VIEW_PET_DETAIL.PLEASE_PROVIDE_A_REASON" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12"></ion-col>
+          <ion-col size="12"></ion-col>
+
+          <ion-col size="12">
+            <span class="view-pet-detail-save-form-label">
+              {{ "VIEW_PET_DETAIL.WHEN_DID_THIS_HAPPEN" | translate }}
+            </span>
+          </ion-col>
+          <ion-col size="12" class="custom-secondary-color">
+            <nz-date-picker
+              style="width: 100%"
+              [ngModel]="now"
+              [nzShowTime]="{ nzFormat: 'HH:mm' }"
+              [nzFormat]="'dd/MM/yyyy HH:mm'"
+              [nzPlaceHolder]="
+                'VIEW_PET_DETAIL.WHEN_DID_THIS_HAPPEN' | translate
+              "
+            ></nz-date-picker>
+          </ion-col>
+
+          <ion-col size="12"></ion-col>
+          <ion-col size="12"></ion-col>
+
+          <ion-col size="12">
+            <div class="control-radio">
+              <nz-radio-group class="radio-2" [ngModel]="'NO'">
+                <label nz-radio nzValue="NO">
+                  {{ "VIEW_PET_DETAIL.ONLY_HIDDEN" | translate }}
+                </label>
+                <label nz-radio nzValue="YES">
+                  {{ "VIEW_PET_DETAIL.DELETE_ALL" | translate }}
+                </label>
+              </nz-radio-group>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="view-pet-detail-save-buttons">
+      <ion-button (click)="onSubmit()">
+        {{ "BTN.SAVE" | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

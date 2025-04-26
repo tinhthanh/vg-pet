@@ -1,0 +1,13 @@
+<div class="setting-layout {{ classMain }} " [style]="styles" >
+  <div class="setting-layout-container">
+    <div class="setting-layout-header">
+      <ng-content select="[header]"></ng-content>
+    </div>
+    <div class="setting-layout-content">
+      <ng-content select="[content]"></ng-content>
+    </div>
+    <div class="setting-layout-footer">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </div>
+</div>

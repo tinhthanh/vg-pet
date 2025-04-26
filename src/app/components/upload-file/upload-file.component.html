@@ -1,0 +1,24 @@
+<div class="upload-file" [style]="styles" id="open-modal-upload-file" expand="block" >
+  <ion-icon name="images-outline"></ion-icon>
+  <span>{{ label | translate }}</span>
+</div>
+
+<ion-modal #modal trigger="open-modal-upload-file" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.75]">
+  <ng-template>
+    <ion-content class="ion-padding upload-file-content" >
+      <div class="upload-file-container">
+        <img class="upload-file-container-image" src="assets/img/img_08.png" alt="image" />
+
+        <ion-button class="upload-file-container-button" (click)="modal.dismiss()">
+          <img src="assets/icons/ic-camera.svg" alt="image" />
+          <span>{{ "BTN.UPLOAD_FROM_LIB" | translate }}</span>
+        </ion-button>
+        
+        <ion-button class="upload-file-container-button" (click)="modal.dismiss()">
+          <img src="assets/icons/ic-note.svg" alt="image" />
+          <span>{{ "BTN.UPLOAD_FROM_FILE" | translate }}</span>
+        </ion-button>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

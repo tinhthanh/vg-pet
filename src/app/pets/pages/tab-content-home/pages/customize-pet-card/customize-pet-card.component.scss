@@ -1,0 +1,74 @@
+.customize-pet-card {
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-header,
+  &-detail {
+    width: var(--width-layout);
+    max-width: var(--width-layout-max);
+    min-width: var(--width-layout-min);
+    padding: 0 20px;
+  }
+
+  &-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    &-title {
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--ion-text-secondary);
+    }
+
+    &-desc {
+      text-align: center;
+      color: var(--ion-text-secondary);
+      margin-bottom: 32px;
+      padding: 0 32px;
+    }
+  }
+
+  &-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 56px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .customize-pet-card {
+    &-content {
+      height: auto;
+    }
+
+    &-header,
+    &-detail {
+      width: unset;
+      max-width: unset;
+      min-width: unset;
+      padding: 0;
+    }
+  }
+}

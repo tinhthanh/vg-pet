@@ -1,0 +1,71 @@
+.add-pet-page-step4 {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .radio-2 {
+      label {
+        gap: 8px;
+        color: var(--ion-text-secondary);
+      }
+    }
+  }
+
+  &-form {
+    &-label {
+      color: var(--ion-text-secondary);
+      font-weight: 600;
+    }
+  }
+
+  &-img {
+    margin: 20px 0;
+    width: 132px;
+    height: 132px;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+    ion-button {
+      min-height: 2.5em;
+      font-weight: 700;
+      min-width: 92px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .add-pet-page-step4 {
+    &-container {
+      height: auto;
+    }
+
+    &-header {
+      &-title {
+        font-size: 16px;
+      }
+    }
+
+    &-img {
+      margin: 4px 0;
+      width: 120px;
+      height: 120px;
+    }
+  }
+}

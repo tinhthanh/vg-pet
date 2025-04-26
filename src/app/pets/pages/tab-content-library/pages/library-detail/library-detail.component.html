@@ -1,0 +1,26 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="library-detail-content">
+  <div class="library-detail-container">
+    <div
+      class="library-detail-picture"
+      [style]="'background-image: url(' + libDetail.picture + ');'"
+    ></div>
+
+    <div class="library-detail-view">
+      <div class="library-detail-view-title">
+        {{ libDetail.title }}
+      </div>
+      <div
+        class="library-detail-view-content"
+        [innerHTML]="libDetail.content"
+      ></div>
+    </div>
+  </div>
+</ion-content>

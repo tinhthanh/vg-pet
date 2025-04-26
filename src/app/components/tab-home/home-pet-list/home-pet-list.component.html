@@ -1,0 +1,15 @@
+<ion-grid class="home-pet">
+  <ion-row class="home-pet-row">
+    @for (pet of petList; track pet.name; let first = $first) {
+    <ion-col
+      size="12"
+      size-md="12"
+      size-lg="12"
+      class="home-pet-item"
+      [style]="first ? 'margin-top: 0px' : 'margin-top: 32px'"
+    >
+      <app-pet-card-profile [petDetail]="pet" [statsInfo]="statsInfo" (oClickCard)="onClickCard($event)" ></app-pet-card-profile>
+    </ion-col>
+    }
+  </ion-row>
+</ion-grid>

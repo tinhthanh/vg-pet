@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding add-pet-page-step4-content">
+  <div class="add-pet-page-step4-container">
+    <div class="add-pet-page-step4-content">
+      <img
+        class="add-pet-page-step4-img"
+        src="assets/img/img_09.png"
+        alt="image"
+      />
+
+      <div class="add-pet-page-step4-form">
+        <ion-row>
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <nz-radio-group class="radio-2">
+              <label nz-radio nzValue="INDOOR">
+                {{ "ADD_PET.INDOOR" | translate }}
+              </label>
+              <label nz-radio nzValue="OUTDOOR">
+                {{ "ADD_PET.OUTDOOR" | translate }}
+              </label>
+            </nz-radio-group>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <span class="add-pet-page-step4-form-label" >
+              {{ "ADD_PET.YOUR_PET_HAS_BEEN_NEUTERED" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <nz-radio-group class="radio-2">
+              <label nz-radio nzValue="NO">
+                {{ "NO" | translate }}
+              </label>
+              <label nz-radio nzValue="YES">
+                {{ "YES" | translate }}
+              </label>
+            </nz-radio-group>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      
+      <div class="add-pet-page-step4-buttons">
+        <ion-nav-link router-direction="forward" [component]="addPetPageStep5">
+          <ion-button>
+            {{ "BTN.CONTINUE" | translate }}
+          </ion-button>
+        </ion-nav-link>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding add-pet-page-step2-content">
+  <div class="add-pet-page-step2-container">
+    <div class="add-pet-page-step2-content">
+      <div class="add-pet-page-step2-header">
+        <span class="add-pet-page-step2-header-title">
+          {{ "ADD_PET.PET_SELECTION" | translate }}
+        </span>
+      </div>
+
+      <div class="add-pet-page-step2-list">
+        <ion-nav-link
+          class="add-pet-page-step2-item"
+          router-direction="forward"
+          [component]="addPetPageStep3"
+          [componentProps]="{ petType: petTypeEnum.DOG }"
+        >
+          <div class="add-pet-page-step2-item-icon">
+            <img [src]="petImageDefault.DOG" alt="dog" />
+          </div>
+          <div class="add-pet-page-step2-item-label">
+            <span>{{ "PET_TYPE.DOG" | translate }}</span>
+          </div>
+        </ion-nav-link>
+
+        <ion-nav-link
+          class="add-pet-page-step2-item"
+          router-direction="forward"
+          [component]="addPetPageStep3"
+          [componentProps]="{ petType: petTypeEnum.CAT }"
+        >
+          <div class="add-pet-page-step2-item">
+            <div class="add-pet-page-step2-item-icon">
+              <img [src]="petImageDefault.CAT" alt="cat" />
+            </div>
+            <div class="add-pet-page-step2-item-label">
+              <span>{{ "PET_TYPE.CAT" | translate }}</span>
+            </div>
+          </div>
+        </ion-nav-link>
+      </div>
+    </div>
+  </div>
+</ion-content>

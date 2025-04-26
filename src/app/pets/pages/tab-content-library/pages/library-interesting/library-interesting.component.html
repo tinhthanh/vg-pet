@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="library-interesting-content">
+  <div class="library-interesting-container">
+    <ion-grid>
+      <ion-row>
+        @for (item of listPetLib; track item.title) {
+        <ion-col size="6" sizeMd="3">
+          <ion-nav-link
+            routerDirection="forward"
+            [component]="libraryDetail"
+            [componentProps]="{ libDetail: item }"
+          >
+            <div class="library-interesting-card">
+              <div
+                class="library-interesting-card-image"
+                [style]="'background-image: url(' + item.picture + ');'"
+              ></div>
+              <span class="library-interesting-card-title">{{ item.title }}</span>
+            </div>
+          </ion-nav-link>
+        </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

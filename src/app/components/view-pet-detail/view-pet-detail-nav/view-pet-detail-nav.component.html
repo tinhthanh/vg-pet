@@ -1,0 +1,58 @@
+<div class="view-pet-detail-nav">
+  <ion-grid style="width: 100%">
+    <ion-row>
+      <ion-col
+        size="6"
+        sizeMd="3"
+        class="view-pet-detail-nav-item"
+        (click)="onNav(1)"
+      >
+        <app-button-icon-circle>
+          <ion-icon name="add-outline"></ion-icon>
+        </app-button-icon-circle>
+        <span class="view-pet-detail-nav-item-label">
+          {{ "BTN.ADD" | translate }}
+        </span>
+      </ion-col>
+      <ion-col
+        size="6"
+        sizeMd="3"
+        class="view-pet-detail-nav-item"
+        (click)="onNav(2)"
+      >
+        <app-button-icon-circle>
+          <ion-icon name="eyedrop-outline"></ion-icon>
+        </app-button-icon-circle>
+        <span class="view-pet-detail-nav-item-label">
+          {{ "BTN.EDIT" | translate }}
+        </span>
+      </ion-col>
+      <ion-col
+        size="6"
+        sizeMd="3"
+        class="view-pet-detail-nav-item"
+        (click)="onNav(3)"
+      >
+        <app-button-icon-circle>
+          <ion-icon name="eye-off-outline"></ion-icon>
+        </app-button-icon-circle>
+        <span class="view-pet-detail-nav-item-label">
+          {{ "BTN.SAVED" | translate }}
+        </span>
+      </ion-col>
+      <ion-col
+        size="6"
+        sizeMd="3"
+        class="view-pet-detail-nav-item"
+        (click)="onNav(4)"
+      >
+        <app-button-icon-circle>
+          <ion-icon name="log-out-outline"></ion-icon>
+        </app-button-icon-circle>
+        <span class="view-pet-detail-nav-item-label">
+          {{ "BTN.EXPORT" | translate }}
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

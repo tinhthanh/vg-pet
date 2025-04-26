@@ -1,0 +1,76 @@
+.schedule-reminder-selection-page {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 12px;
+    width: 100%;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    &-desc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    &-image {
+      height: 250px;
+      margin-bottom: 16px;
+    }
+
+    ion-button {
+      min-width: 100px;
+      min-height: 2.5em;
+      font-weight: 700;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .schedule-reminder-selection-page {
+    &-container {
+      height: auto;
+    }
+  }
+}

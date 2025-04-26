@@ -1,0 +1,78 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding add-pet-page-step5-content">
+  <div class="add-pet-page-step5-container">
+    <div class="add-pet-page-step5-content">
+      <div class="add-pet-page-step5-header">
+        <span class="add-pet-page-step5-header-title">
+          {{ "ADD_PET.SELECTION_REMIND" | translate }}
+        </span>
+
+        <span class="add-pet-page-step5-header-desc">
+          {{ "ADD_PET.SELECTION_REMIND_DESC" | translate }}
+        </span>
+      </div>
+
+      <img
+        class="add-pet-page-step5-img"
+        src="assets/img/img_06.png"
+        alt="image"
+      />
+
+      <div class="add-pet-page-step5-list">
+        <ion-row>
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <div class="add-pet-page-step5-card">
+              <span class="add-pet-page-step5-card-label">{{
+                "ADD_PET.BIRTHDAY" | translate
+              }}</span>
+              <nz-switch
+                [ngModel]="false"
+                [nzCheckedChildren]="'ON' | translate"
+                [nzUnCheckedChildren]="'OFF' | translate"
+              ></nz-switch>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <div class="add-pet-page-step5-card">
+              <span class="add-pet-page-step5-card-label">{{
+                "ADD_PET.WEIGHT" | translate
+              }}</span>
+              <nz-switch
+                [ngModel]="false"
+                [nzCheckedChildren]="'ON' | translate"
+                [nzUnCheckedChildren]="'OFF' | translate"
+              ></nz-switch>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <div class="add-pet-page-step5-card">
+              <span class="add-pet-page-step5-card-label">{{
+                "ADD_PET.UPLOAD_PICTURE" | translate
+              }}</span>
+              <nz-switch
+                [ngModel]="false"
+                [nzCheckedChildren]="'ON' | translate"
+                [nzUnCheckedChildren]="'OFF' | translate"
+              ></nz-switch>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="add-pet-page-step5-buttons">
+        <ion-button (click)="onSubmit()">
+          {{ "BTN.COMPLETE" | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

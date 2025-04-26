@@ -1,0 +1,47 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-remind-page-content">
+  <div class="schedule-remind-page-container">
+    <div class="schedule-remind-page-content">
+      <div class="schedule-remind-page-header">
+        <img src="assets/img/img_04.png" alt="image" />
+        <span class="schedule-remind-page-header-title">
+          {{ "SCHEDULE.REMIND_FOR_ME" | translate }}
+        </span>
+      </div>
+
+      <div class="schedule-remind-page-form" >
+        <form [formGroup]="formScheduleRemind" >
+          <nz-radio-group class="" formControlName="remindType" >
+            <label nz-radio [nzValue]="remindTypeEnum.AT_TIME">
+              <div class="number-of-repetitions-options" >
+                <div class="text-box-container">
+                  <img src="assets/icons/ic-clock.svg" [alt]="'SCHEDULE.AT_TIME' | translate" />
+                </div>
+                <span>{{ 'SCHEDULE.AT_TIME' | translate}} </span>
+              </div>
+            </label>
+            <label nz-radio [nzValue]="remindTypeEnum.BEFORE_TIME">
+              <div class="number-of-repetitions-options" >
+                <div class="text-box-container">
+                  <img src="assets/icons/ic-appointments.svg" [alt]="'SCHEDULE.BEFORE_TIME' | translate" />
+                </div>
+                <span>{{ 'SCHEDULE.BEFORE_TIME' | translate}} </span>
+              </div>
+            </label>
+          </nz-radio-group>
+        </form>
+      </div>
+
+      <div class="schedule-remind-page-footer">
+        <ion-button (click)="submit()"> {{ "BTN.CONSIDER" | translate }} </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,20 @@
+<app-setting-layout [classMain]="'setting-register'">
+  <ng-container header>
+    <div class="setting-register-header">
+      <div class="setting-register-header-title">
+        <ion-icon name="albums-outline"></ion-icon>
+        <span>{{ "REGISTER" | translate }}</span>
+      </div>
+    </div>
+
+    <div class="setting-register-btn">
+      <ion-button>
+        <img [src]="petImageDefault['DOG']" alt="Dog" />
+        <div class="setting-register-btn-title">
+          <span>{{ "DOG_CAT_PLUS" | translate }}</span>
+        </div>
+        <img [src]="petImageDefault['CAT']" alt="Cat"
+      /></ion-button>
+    </div>
+  </ng-container>
+</app-setting-layout>

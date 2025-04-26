@@ -1,0 +1,90 @@
+.setting-about {
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      margin-top: 4px;
+      color: var(--ion-text-secondary);
+      font-size: 14px;
+    }
+  }
+
+  &-avatar {
+    background-image: url("../../../../../../assets/img/pet.webp");
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-theme);
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-card {
+    width: 85%;
+    height: 250px;
+    min-height: 250px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    border: 1px solid var(--ion-text-color);
+    box-shadow: 0px 0px 16px 0px var(--ion-text-color-50);
+    -webkit-box-shadow: 0px 0px 16px 0px var(--ion-text-color-50);
+    -moz-box-shadow: 0px 0px 16px 0px var(--ion-text-color-50);
+
+    &-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--ion-text-secondary);
+      font-weight: 700;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--ion-text-color);
+
+      span {
+        margin-left: 8px;
+      }
+    }
+
+    &-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: calc(100% - 40px);
+      width: 100%;
+      padding: 12px;
+      color: var(--ion-text-secondary);
+    }
+
+    &-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+
+      ion-icon {
+        font-size: 40px;
+      }
+    }
+
+    &-desc {
+      margin-top: 16px;
+      padding: 0 20px;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+}

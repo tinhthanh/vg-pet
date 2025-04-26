@@ -1,0 +1,73 @@
+.upload-file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px dashed var(--ion-text-color);
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 300px;
+  width: 30%;
+  height: 150px;
+  margin-bottom: 20px;
+  background-color: var(--ion-background-secondary);
+
+  ion-icon {
+    font-size: 50px;
+  }
+
+  span {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    gap: 8px;
+    color: var(--ion-text-secondary);
+  }
+
+  &-content {
+    --padding-bottom: 32px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+
+  &-container {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    &-image {
+      width: 250px;
+      height: 250px;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+ion-modal {
+  --width: 100%;
+  --border-radius: 24px;
+}

@@ -1,0 +1,72 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-view-page-content">
+  <div class="schedule-view-page-container">
+    <div class="schedule-view-page-content">
+      <div class="schedule-view-page-content-item" >
+        <img src="assets/icons/ic-bell.svg" alt="bell" />
+        <span>{{ "SCHEDULE.DETAIL.TITLE" | translate }}</span>
+        <img [src]="schedule.scheduleEvent?.icon" [alt]="schedule.scheduleEvent?.alt" />
+        <span>{{ (schedule.scheduleEvent?.label || '') | translate }}</span>
+      </div>
+
+      <div class="schedule-view-page-content-item">
+        <span class="hight-light"> {{ schedule.scheduleDesc || '' }} </span>
+      </div>
+
+      <div class="schedule-view-page-content-line" ></div>
+
+      <div class="schedule-view-page-content-item" >
+        <img src="assets/icons/ic-appointments.svg" alt="appointments" />
+        <span>{{ "SCHEDULE.DETAIL.REMIND" | translate }}</span>
+      </div>
+
+      <div class="schedule-view-page-content-item">
+        <span class="hight-light"> 
+          {{ schedule.scheduleBehavior.startDateTime | date: "dd-MM-yyyy HH:mm:ss" }} 
+        </span>
+      </div>
+
+      <div class="schedule-view-page-content-line" ></div>
+
+      <div class="schedule-view-page-content-item" >
+        <div class="text-box-container">
+          <ion-icon style="font-size: 16px; font-weight: 600;" name="repeat-outline"></ion-icon>
+        </div>
+        <span>{{ "SCHEDULE.DETAIL.REPEAT" | translate }}</span>
+      </div>
+
+      <div class="schedule-view-page-content-item">
+        <div class="text-box-container">
+          <ion-icon style="font-size: 16px; font-weight: 600;" name="repeat-outline"></ion-icon>
+        </div>
+        <span class="hight-light hight-light-item"> 
+          {{ "SCHEDULE.EVERY" | translate }}
+          @if(schedule.scheduleBehavior.numberOfRepetitions === numberOfRepetitions.ONCE) {
+            {{ 1 + ' ' + ("DAYS" | translate) }}
+          }
+
+          @if(schedule.scheduleBehavior.numberOfRepetitions === numberOfRepetitions.REPEAT) {
+            {{ schedule.scheduleBehavior.frequencyNumber + ' ' + (schedule.scheduleBehavior.frequencyUnit+'' | translate) }}
+          }
+        </span>
+      </div>
+
+      <div class="schedule-view-page-content-desc">
+        <span>{{ "SCHEDULE.DETAIL.DESC_1" | translate }}</span><br />
+        <span>{{ "SCHEDULE.DETAIL.DESC_2" | translate }}</span><br />
+        <div style="margin-top: 24px;" >{{ ("SCHEDULE.DETAIL.FOR_PET" | translate) + petDetail.name }}</div>
+      </div>
+
+      <div class="schedule-view-page-footer">
+        <ion-button (click)="submit()"> {{ "BTN.SAVE" | translate }} </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

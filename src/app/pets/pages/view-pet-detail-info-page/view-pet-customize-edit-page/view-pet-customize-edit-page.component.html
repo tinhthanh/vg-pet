@@ -1,0 +1,91 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding view-pet-customize-edit-page-content">
+  <div class="view-pet-customize-edit-page-container">
+    <div class="view-pet-customize-edit-page-header">
+      <span class="view-pet-customize-edit-page-header-title">
+        {{ "VIEW_PET_DETAIL.ADD_EVERYTHING_INFO" | translate }}
+      </span>
+    </div>
+
+    <form [formGroup]="formGroup" class="view-pet-customize-edit-page-form">
+      @if(customizeListControl.controls.length > 0) {
+      <ion-grid class="view-pet-customize-edit-page-list">
+        <ion-row formArrayName="customizeList">
+          @for (control of customizeListControl.controls; track control.value;
+          let idx = $index) {
+          <ion-col size="12" [formGroupName]="idx">
+            <div class="view-pet-customize-edit-page-list-item">
+              <div class="view-pet-customize-edit-page-list-item-content">
+                <ion-row>
+                  <ion-col size="12">
+                    <span class="view-pet-customize-edit-page-form-label">
+                      {{ "VIEW_PET_DETAIL.ENTER_NAME_ITEM" | translate }}
+                    </span>
+                  </ion-col>
+                  <ion-col size="12">
+                    <input
+                      nz-input
+                      style="width: 100%"
+                      formControlName="name"
+                    />
+                  </ion-col>
+
+                  <ion-col size="12"></ion-col>
+
+                  <ion-col size="12">
+                    <span class="view-pet-customize-edit-page-form-label">
+                      {{
+                        ("VIEW_PET_DETAIL.ENTER_VALUE_ITEM" | translate) +
+                          customizeListControl.controls[idx].value.name || ""
+                      }}
+                    </span>
+                  </ion-col>
+                  <ion-col size="12">
+                    <input
+                      nz-input
+                      style="width: 100%"
+                      formControlName="value"
+                    />
+                  </ion-col>
+
+                  <ion-col size="12"></ion-col>
+                  <ion-col size="12"></ion-col>
+                </ion-row>
+              </div>
+              <div class="view-pet-customize-edit-page-list-item-remove">
+                <app-button-icon-circle (click)="onRemove(idx)">
+                  <ng-container>
+                    <ion-icon
+                      slot="icon-only"
+                      size="small"
+                      name="trash-outline"
+                    ></ion-icon>
+                  </ng-container>
+                </app-button-icon-circle>
+              </div>
+            </div>
+          </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+      }
+    </form>
+
+    <div class="view-pet-customize-edit-page-buttons">
+      <ion-button (click)="onAdd()">
+        {{ "BTN.ADD" | translate }}
+      </ion-button>
+
+      <ion-button (click)="onSave()">
+        {{ "BTN.SAVE" | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

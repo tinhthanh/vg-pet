@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-log-remind-page-content">
+  <div class="schedule-log-remind-page-container">
+    <div class="schedule-log-remind-page-content">
+      <div class="schedule-log-remind-page-header">
+        <ion-button>
+          {{ "BTN.CREATE_PETS" | translate }}
+        </ion-button>
+
+        <span class="schedule-log-remind-page-header-title">
+          {{ "SCHEDULE.LOG.TITLE" | translate }}
+        </span>
+
+        <span class="schedule-log-remind-page-header-desc">
+          {{ "SCHEDULE.LOG.DESC" | translate }}
+        </span>
+      </div>
+
+      <div class="schedule-log-remind-page-list" >
+        @for(eventType of eventTypeConfigList; track eventType.label) {
+          <div class="schedule-log-remind-page-list-item" (click)="onSelectEventType(eventType)" >
+            <img [src]="eventType.icon" [alt]="eventType.alt" />
+            <span class="schedule-log-remind-page-list-item-label">
+              {{ eventType.label | translate }}
+            </span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</ion-content>

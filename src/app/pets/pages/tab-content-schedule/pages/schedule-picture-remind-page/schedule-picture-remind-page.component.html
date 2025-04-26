@@ -1,0 +1,51 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-picture-remind-page-content">
+  <div class="schedule-picture-remind-page-container">
+    <div class="schedule-picture-remind-page-content">
+      <div class="schedule-picture-remind-page-header">
+        <span class="schedule-picture-remind-page-header-title">
+          {{ "SCHEDULE.PICTURE.TITLE" | translate }}
+        </span>
+      </div>
+
+      <app-upload-file label="SCHEDULE.UPLOAD_PICTURE" [styles]="''" ></app-upload-file>
+
+      <span class="schedule-picture-remind-page-desc">
+        {{ "SCHEDULE.PICTURE.DESC" | translate }}
+      </span>
+
+      <div class="schedule-picture-remind-page-form">
+        <form>
+          <div class="schedule-picture-remind-page-form-field">
+            <span class="schedule-picture-remind-page-form-field-label">
+              {{ "SCHEDULE.PICTURE.FIELD_DESC_LABEL" | translate }}
+            </span>
+            <input
+              nz-input
+              type="text"
+              [placeholder]="
+                'SCHEDULE.PICTURE.FIELD_DESC_PLACEHOLDER' | translate
+              "
+            />
+            <span class="schedule-picture-remind-page-form-field-desc">
+              {{ "SCHEDULE.PICTURE.FIELD_DESC_TEXT" | translate }}
+            </span>
+          </div>
+        </form>
+      </div>
+
+      <div class="schedule-picture-remind-page-footer">
+        <ion-button (click)="submit()">
+          {{ "BTN.SAVE" | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

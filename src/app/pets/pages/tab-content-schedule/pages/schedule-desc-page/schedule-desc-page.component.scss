@@ -1,0 +1,86 @@
+.schedule-desc-page {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+      margin-bottom: 20px;
+    }
+
+    &-desc {
+      font-size: 16px;
+      color: var(--ion-text-color-icon);
+      margin-bottom: 16px;
+    }
+
+    img {
+      margin-top: 8px;
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    ion-button {
+      min-height: 2.5em;
+      font-weight: 700;
+    }
+  }
+
+  &-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    min-width: 280px;
+
+    form {
+      width: 100%;
+    }
+
+    span {
+      color: var(--ion-text-color-icon);
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .schedule-desc-page {
+    &-container {
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.library-detail {
+  &-picture {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+  }
+
+  &-view {
+    padding: 0 16px;
+
+    &-title {
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      width: 55%;
+      margin: 16px auto;
+      color: var(--ion-text-secondary);
+    }
+
+    &-content {
+        font-size: 20px;
+        text-align: center;
+        padding: 0px 20px;
+        color: var(--ion-text-secondary);
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .library-detail {
+    &-picture {
+      height: 280px;
+    }
+  }
+}

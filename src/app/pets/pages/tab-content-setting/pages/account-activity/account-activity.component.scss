@@ -1,0 +1,56 @@
+.setting-account {
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--ion-text-color);
+    width: 65%;
+    margin: 0 auto;
+    padding-bottom: 4px;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 32px;
+    margin-top: 32px;
+
+    ion-button {
+      --padding-top: 8px;
+      --padding-bottom: 8px;
+      min-height: 2.5em;
+      width: 8em;
+
+      --background: var(--danger-bg-color);
+      --color: var(--danger-text-color);
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .setting-account {
+    &-footer {
+      margin-top: 24px;
+
+      ion-button {
+        font-size: 12px;
+        --padding-top: 12px;
+        --padding-bottom: 12px;
+        --border-radius: 8px;
+      }
+    }
+  }
+}

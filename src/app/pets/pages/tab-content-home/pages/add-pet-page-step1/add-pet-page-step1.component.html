@@ -1,0 +1,82 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding add-pet-page-step1-content">
+  <div class="add-pet-page-step1-container">
+    <div class="add-pet-page-step1-content">
+      <div class="add-pet-page-step1-header">
+        <span class="add-pet-page-step1-header-title">
+          {{ "ADD_PET.TIME_CONSUMING" | translate }}
+        </span>
+      </div>
+
+      <img
+        class="add-pet-page-step1-img"
+        src="assets/img/img_09.png"
+        alt="image"
+      />
+
+      <div class="add-pet-page-step1-form">
+        <form [formGroup]="formPetStep1">
+          <ion-row>
+            <ion-col size="12">
+              <span class="add-pet-page-step1-form-field-label">
+                {{ "FIRST_NAME" | translate }}
+              </span>
+            </ion-col>
+            <ion-col size="12">
+              <input nz-input formControlName="name" style="width: 100%" />
+            </ion-col>
+
+            <ion-col size="12" style="display: flex; justify-content: center">
+              <nz-radio-group class="radio-2" formControlName="gender">
+                <label nz-radio [nzValue]="petGenderEnum.FEMALE">
+                  <span [innerHTML]="'FEMALE' | genderIcon"> </span>
+                  {{ "FEMALE" | translate }}
+                </label>
+                <label nz-radio [nzValue]="petGenderEnum.MALE">
+                  <span [innerHTML]="'MALE' | genderIcon"> </span>
+                  {{ "MALE" | translate }}
+                </label>
+              </nz-radio-group>
+            </ion-col>
+
+            <ion-col size="12">
+              <span class="add-pet-page-step1-form-field-label">
+                {{ "DOB" | translate }}
+              </span>
+            </ion-col>
+            <ion-col size="12" class="custom-secondary-color">
+              <nz-date-picker
+                style="width: 100%"
+                [nzShowTime]="{ nzFormat: 'HH:mm' }"
+                [nzFormat]="'dd/MM/yyyy HH:mm'"
+                formControlName="dob"
+                [nzPlaceHolder]="'DOB' | translate"
+              ></nz-date-picker>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+
+      <div class="add-pet-page-step1-buttons">
+        <ion-nav-link router-direction="forward" [component]="addPetPageStep2">
+          <ion-button>
+            {{ "BTN.CONTINUE" | translate }}
+          </ion-button>
+        </ion-nav-link>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #displayErrorTpl let-control>
+  @if (control.errors?.['required']) {
+  {{ "SCHEDULE.DESC_FIELD_REQUIRED" | translate }}
+  }
+</ng-template>

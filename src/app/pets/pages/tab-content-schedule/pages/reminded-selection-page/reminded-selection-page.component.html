@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding reminded-selection-page-content">
+  <div class="reminded-selection-page-container">
+    <div class="reminded-selection-page-content">
+      <div class="reminded-selection-page-header">
+        <span class="reminded-selection-page-header-title">
+          {{ "SCHEDULE.I_WANT_REMEMBER" | translate }}
+        </span>
+      </div>
+
+      <div class="reminded-selection-page-list" >
+        @for(eventType of remindTypeConfigList; track eventType.label) {
+          <div class="reminded-selection-page-list-item" (click)="onSelectEventType(eventType)" >
+            <div class="reminded-selection-page-list-item-icon" >
+              <img [src]="eventType.icon" [alt]="eventType.alt" />
+            </div>
+            <span class="reminded-selection-page-list-item-label">
+              {{ eventType.label | translate }}
+            </span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</ion-content>

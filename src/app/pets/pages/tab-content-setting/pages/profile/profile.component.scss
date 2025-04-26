@@ -1,0 +1,105 @@
+.setting-profile {
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--ion-text-color);
+    width: 65%;
+    margin: 0 auto;
+    padding-bottom: 4px;
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      gap: 8px;
+      color: var(--ion-text-secondary);
+    }
+  }
+
+  &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 24px 0px 12px 0;
+
+    div {
+      color: var(--ion-text-secondary);
+      font-weight: 400;
+      padding: 0 4px;
+    }
+
+    span {
+      color: var(--ion-text-link);
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  &-form {
+    width: 100%;
+
+    form {
+      width: 100%;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 32px;
+    margin-top: 32px;
+
+    ion-button {
+      --padding-top: 8px;
+      --padding-bottom: 8px;
+      min-height: 2.5em;
+      width: 8em;
+    }
+  }
+}
+
+.ant-form-item {
+  margin: 0 0 12px;
+}
+
+@media only screen and (max-width: 500px) {
+  .setting-profile {
+    &-link {
+      font-size: 10px;
+
+      div {
+        color: var(--ion-text-secondary);
+        font-weight: 400;
+        padding: 0 4px;
+      }
+
+      span {
+        color: var(--ion-text-link);
+        font-weight: 700;
+        cursor: pointer;
+      }
+    }
+
+    .ant-form-item-label > label {
+      font-size: 10px;
+    }
+
+    &-footer {
+      margin-top: 24px;
+
+      ion-button {
+        font-size: 12px;
+        --padding-top: 12px;
+        --padding-bottom: 12px;
+        --border-radius: 8px;
+      }
+    }
+  }
+}

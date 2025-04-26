@@ -1,0 +1,39 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding sort-pet-page-content">
+  <div class="sort-pet-page-container">
+    <div class="sort-pet-page-header">
+      <span class="sort-pet-page-header-title">
+        {{ "SORT_PET_PAGE.TITLE" | translate }}
+      </span>
+  
+      <span class="sort-pet-page-header-desc">
+        {{ "SORT_PET_PAGE.DESC" | translate }}
+      </span>
+    </div>
+  
+    <div class="sort-pet-page-list" cdkDropList [cdkDropListData]="petList()" (cdkDropListDropped)="drop($event)">
+      @for (pet of petList(); track pet.name) {
+        <div cdkDrag class="sort-pet-page-item">
+          <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+          <div class="sort-pet-page-item-content" >
+            <img
+              class="sort-pet-page-item-avatar"
+              [src]="(pet | petAvatarUrl) || ''"
+              [alt]="pet.avatarAlt"
+            />
+            <span class="sort-pet-page-item-name">
+              {{ pet.name }}
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</ion-content>

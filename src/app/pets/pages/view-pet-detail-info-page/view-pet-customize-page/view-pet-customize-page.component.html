@@ -1,0 +1,26 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding view-pet-customize-page-content">
+  <div class="view-pet-customize-page-container">
+    <div class="view-pet-customize-page-header">
+      <div class="view-pet-customize-page-header-icon">
+        <img [src]="petInfoConfig.icon" [alt]="petInfoConfig.alt" />
+      </div>
+      <span class="view-pet-customize-page-header-text">
+        {{ petInfoConfig.label | translate }}
+      </span>
+    </div>
+
+    <div class="view-pet-customize-page-buttons">
+      <ion-button (click)="onEdit()">
+        {{ "BTN.EDIT" | translate }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

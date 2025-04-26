@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-desc-page-content">
+  <div class="schedule-desc-page-container">
+    <div class="schedule-desc-page-content">
+      <div class="schedule-desc-page-header">
+        <span class="schedule-desc-page-header-title">
+          {{ "SCHEDULE.DESC_TITLE" | translate }}
+        </span>
+        <img src="assets/img/img_02.png" alt="image" />
+      </div>
+
+      <div class="schedule-desc-page-form" >
+        <form [formGroup]="formScheduleDesc">
+          <nz-form-item style="width: 100%;">
+            <nz-form-label [nzSpan]="24">{{'SCHEDULE.DESC_FIELD_LABEL' | translate}}</nz-form-label>
+            <nz-form-control [nzSpan]="24" [nzErrorTip]="displayErrorTpl">
+              <input nz-input formControlName="desc" [placeholder]="'SCHEDULE.DESC_FIELD_PLACEHOLDER' | translate" />
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+        <span>{{ 'SCHEDULE.DESC_FIELD_DESC' | translate }}</span>
+      </div>
+      <div class="schedule-desc-page-footer">
+        <ion-button (click)="submit()">{{ 'BTN.CONTINUE' | translate }}</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #displayErrorTpl let-control>
+  @if (control.errors?.['required']) {
+    {{ 'SCHEDULE.DESC_FIELD_REQUIRED' | translate }}
+  }
+</ng-template>

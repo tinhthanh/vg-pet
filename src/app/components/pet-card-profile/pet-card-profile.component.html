@@ -1,0 +1,114 @@
+<div class="pet-card-profile" (click)="onClickCard()" >
+  <div class="pet-card-profile-container">
+    <div class="header"></div>
+
+    <div class="base-info">
+      <ng-container
+        [ngTemplateOutlet]="baseInfoAvatar"
+        [ngTemplateOutletContext]="{
+          data: petDetail || petDefaultConfig
+        }"
+      ></ng-container>
+
+      <div class="base-info-container">
+        @if(petDetail && !isConfig) {
+        <div class="base-info-container-name">
+          <span [innerHTML]="petDetail.gender | genderIcon"> </span>
+          {{ petDetail.name || "" }}
+        </div>
+        <div class="base-info-container-age">
+          {{ "DOB_TEXT" | translate | dobDateDetail : petDetail }}
+        </div>
+
+        } @else {
+        <div class="base-info-container-name">
+          <span [innerHTML]="petDefaultConfig.gender | genderIcon"> </span>
+          {{ petDefaultConfig.name | translate }}
+        </div>
+        <div class="base-info-container-age">
+          {{ petDefaultConfig.dob | translate }}
+        </div>
+        }
+      </div>
+    </div>
+
+    <ng-container
+      [ngTemplateOutlet]="statsInfo"
+      [ngTemplateOutletContext]="{
+        data: petDetail || petDefaultConfig
+      }"
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #baseInfoAvatar let-data="data">
+  <div class="base-info-avatar">
+    @if(!data.avatarUrl) {
+    <div class="pet-avatar">
+      <img [src]="(data | petAvatarUrl) || ''" [alt]="data.avatarAlt || ''" />
+    </div>
+    } @else {
+    <div
+      class="pet-avatar have-avatar-url"
+      [style]="'background-image: url(' + data.avatarUrl + ');'"
+    ></div>
+    }
+    <div class="camera-icon">
+      <ion-icon name="camera"></ion-icon>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #statsInfo let-data="data">
+  @if(statsInfoConfig && statsInfoConfig.length > 0) {
+  <ion-grid class="stats-info">
+    <ion-row class="stats-info-row">
+      @for (stats of statsInfoConfig; track stats.icon; let idx = $index) {
+      <ion-col size="6" size-md="4" size-lg="4" class="stats-info-col">
+        @if(isConfig) {
+        <ion-nav-link
+          router-direction="forward"
+          [component]="statsListPetCardComponent"
+          [componentProps]="{
+            slotNumber: idx
+          }"
+        >
+          <ng-container
+            [ngTemplateOutlet]="statsInfoItem"
+            [ngTemplateOutletContext]="{
+              data: petDetail || petDefaultConfig,
+              stats: stats
+            }"
+          ></ng-container>
+        </ion-nav-link>
+        } @else {
+        <ng-container
+          [ngTemplateOutlet]="statsInfoItem"
+          [ngTemplateOutletContext]="{
+            data: petDetail || petDefaultConfig,
+            stats: stats
+          }"
+        ></ng-container>
+        }
+      </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+  }
+</ng-template>
+
+<ng-template #statsInfoItem let-data="data" let-stats="stats">
+  <div class="stats-info-item">
+    <div class="stats-info-item-icon">
+      <img [src]="stats.icon" [alt]="stats.alt" />
+    </div>
+    <div class="stats-info-item-value" [ngClass]="{ 'have-edit': isConfig }">
+      {{ data[stats.field] || "0" }} {{ stats.unit || "" }}
+    </div>
+    @if(isConfig) {
+    <div class="stats-info-item-edit">
+      <ion-icon name="cog"></ion-icon>
+    </div>
+    }
+  </div>
+</ng-template>

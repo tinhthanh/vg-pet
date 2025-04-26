@@ -1,0 +1,135 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-behavior-page-content">
+  <div class="schedule-behavior-page-container">
+    <div class="schedule-behavior-page-content">
+      <div class="schedule-behavior-page-header">
+        <img src="assets/img/img_03.png" alt="image" />
+        <span class="schedule-behavior-page-header-title">
+          {{ "SCHEDULE.SCHEDULE_DOT" | translate }}
+        </span>
+
+      </div>
+
+      <div class="schedule-behavior-page-form" >
+        <form [formGroup]="formScheduleBehavior" class="custom-secondary-color" >
+          <nz-radio-group class="" formControlName="numberOfRepetitions" >
+            <label nz-radio [nzValue]="numberOfRepetitionsEnum.ONCE">
+              <div class="number-of-repetitions-options" >
+                <div class="text-box-container" style="font-size: 16px;">1</div>
+                <span>{{ 'SCHEDULE.ONCE' | translate}} </span>
+              </div>
+            </label>
+            <label nz-radio [nzValue]="numberOfRepetitionsEnum.REPEAT">
+              <div class="number-of-repetitions-options" >
+                <div class="text-box-container">
+                  <ion-icon style="font-size: 16px;" name='repeat-outline'></ion-icon>
+                </div>
+                <span>{{ 'SCHEDULE.REPEAT' | translate}} </span>
+              </div>
+            </label>
+          </nz-radio-group>
+          <br />
+
+          @if (isRepeat) {
+            <span class="schedule-behavior-page-frequency-title">
+              {{ "SCHEDULE.REPEAT_LABEL" | translate }}
+            </span>
+            <ion-grid style="width: 100%;">
+              <ion-row>
+                <ion-col size="2" class="schedule-behavior-page-frequency-title" >
+                  {{ "SCHEDULE.EVERY" | translate }}
+                </ion-col>
+                <ion-col size="5">
+                  <nz-select style="width: 80%;" formControlName="frequencyNumber">
+                    @for(frequency of frequencyList; track frequency) {
+                      <nz-option [nzValue]="frequency" [nzLabel]="frequency"></nz-option> 
+                    }
+                  </nz-select>
+                </ion-col>
+                <ion-col size="5">
+                  <nz-select style="width: 80%;" formControlName="frequencyUnit">
+                    @for(unit of frequencyUnitOptions; track unit) {
+                      <nz-option [nzValue]="unit" [nzLabel]="unit | translate"></nz-option> 
+                    }
+                  </nz-select>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          }
+
+          <span class="schedule-behavior-page-start-date-time-title">
+            @if(isOnce) {
+              {{ "SCHEDULE.SELECT_DATE" | translate }}
+            } @if (isRepeat) {
+              {{ "SCHEDULE.REPEAT_DATE_TIME" | translate }}
+            }
+          </span>
+
+          <nz-form-item style="width: 100%;">
+            <nz-form-label [nzSpan]="24">{{'SCHEDULE.REPEAT_DATE_LABEL' | translate}}</nz-form-label>
+            <nz-form-control [nzSpan]="24" [nzErrorTip]="displayErrorTpl">
+              <nz-date-picker
+                style="width: 100%;"
+                [nzShowTime]="{ nzFormat: 'HH:mm' }"
+                [nzDisabledDate]="disabledDate"
+                [nzFormat]="'dd/MM/yyyy HH:mm'"
+                formControlName="startDateTime"
+                [nzPlaceHolder]="'SCHEDULE.REPEAT_DATE_PLACEHOLDER' | translate"
+              ></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+
+          @if (isRepeat) {
+          <nz-form-item style="width: 100%;">
+            <nz-form-label [nzSpan]="24">{{'SCHEDULE.REPEAT_DATE_END_LABEL' | translate}}</nz-form-label>
+            <nz-form-control [nzSpan]="24" [nzErrorTip]="displayErrorTpl">
+              <nz-date-picker
+                style="width: 100%;"
+                [nzShowTime]="{ nzFormat: 'HH:mm' }"
+                [nzDisabledDate]="disabledDate"
+                [nzFormat]="'dd/MM/yyyy HH:mm'"
+                formControlName="endDateTime"
+                [nzPlaceHolder]="'SCHEDULE.REPEAT_DATE_END_PLACEHOLDER' | translate"
+              ></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+          }
+        </form>
+      </div>
+      <div class="schedule-behavior-page-footer">
+        <ion-button (click)="submit()"> {{ "BTN.CONTINUE" | translate }} </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+<ng-template #displayErrorTpl let-control>
+  @if (control.errors?.['required']) {
+    {{ 'SCHEDULE.DESC_FIELD_REQUIRED' | translate }}
+  }
+</ng-template>
+
+<ng-template #iconRepeatTlp>
+  <ion-icon name='repeat-outline'></ion-icon>
+</ng-template>
+
+<ng-template #numberOfRepetitionsOptionsTlp let-textBox="textBox" let-label="label" >
+  <div class="number-of-repetitions-options" >
+    <ng-container [ngTemplateOutlet]="textBoxTlp" [ngTemplateOutletContext]="{ content: textBox }"></ng-container> 
+    <span>{{ label | translate}} </span>
+  </div>
+</ng-template>
+
+<ng-template #textBoxTlp let-content="content">
+  <div class="text-box-container">
+    <span> {{ content || '' }}</span>
+  </div>
+</ng-template>

@@ -1,0 +1,45 @@
+<ion-toolbar class="header-view-pet-detail" >
+  <ion-buttons slot="start">
+    <app-back-button></app-back-button>
+  </ion-buttons>
+
+  <div class="header-view-pet-detail-avatar" >
+    <div>
+
+    </div>
+  </div>
+
+  @if(petDetail) {
+  <div class="header-view-pet-detail-avatar">
+    @if(!petDetail.avatarUrl) {
+    <div class="pet-avatar">
+      <img [src]="(petDetail | petAvatarUrl) || ''" [alt]="petDetail.avatarAlt || ''" />
+    </div>
+    } @else {
+    <div
+      class="pet-avatar have-avatar-url"
+      [style]="'background-image: url(' + petDetail.avatarUrl + ');'"
+    ></div>
+    }
+    <div class="camera-icon">
+      <ion-icon name="camera"></ion-icon>
+    </div>
+  </div>
+  }
+
+  <ion-buttons slot="primary">
+    <ion-nav-link router-direction="forward" [component]="configPage">
+      <ion-button>
+        <app-button-icon-circle>
+          <ng-container>
+            <ion-icon
+              slot="icon-only"
+              size="small"
+              name="settings-outline"
+            ></ion-icon>
+          </ng-container>
+        </app-button-icon-circle>
+      </ion-button>
+    </ion-nav-link>
+  </ion-buttons>
+</ion-toolbar>

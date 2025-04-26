@@ -1,0 +1,65 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class="schedule-reminder-selection-invite">
+  <div class="schedule-reminder-selection-invite-container">
+    <div class="schedule-reminder-selection-invite-content">
+      <div class="schedule-reminder-selection-invite-header">
+        <span class="schedule-reminder-selection-invite-header-title">
+          {{ "SCHEDULE.REMINDER.SELECTION_ROLE" | translate }}
+        </span>
+        <span class="schedule-reminder-selection-invite-header-desc">
+          {{ "SCHEDULE.REMINDER.SELECTION_ROLE_DESC" | translate: { name: petDetail?.name } }}
+        </span>
+
+        <div class="schedule-reminder-selection-invite-list" >
+          @for(reminder of reminderConfigListOptions; track reminder.label) {
+            <div 
+              class="schedule-reminder-selection-invite-list-item" 
+              [ngClass]="{'active': formInvite.role && formInvite.role === reminder}"
+              (click)="onSelectRole(reminder)"
+            >
+              <img [src]="reminder.icon" [alt]="reminder.alt" />
+              <span class="schedule-reminder-selection-invite-list-item-label">
+                {{ reminder.label | translate }}
+              </span>
+            </div>
+          }
+        </div>
+
+        <span class="schedule-reminder-selection-invite-header-title">
+          {{ "SCHEDULE.REMINDER.SELECTION_LEVEL" | translate }}
+        </span>
+        <span class="schedule-reminder-selection-invite-header-desc">
+          {{ "SCHEDULE.REMINDER.SELECTION_LEVEL_DESC" | translate: { name: petDetail?.name } }}
+        </span>
+
+        <div class="schedule-reminder-selection-invite-list" >
+          @for(reminderLevel of reminderConfigLevelListOptions; track reminderLevel.label) {
+            <div 
+              class="schedule-reminder-selection-invite-list-item" 
+              [ngClass]="{'active': formInvite.level && formInvite.level === reminderLevel}"
+              (click)="onSelectLevel(reminderLevel)"
+            >
+              <img [src]="reminderLevel.icon" [alt]="reminderLevel.alt" />
+              <span class="schedule-reminder-selection-invite-list-item-label">
+                {{ reminderLevel.label | translate }}
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="schedule-reminder-selection-invite-footer" >
+        <ion-button (click)="submit()" >
+          {{ "BTN.SAVE" | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

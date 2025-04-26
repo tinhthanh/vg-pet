@@ -1,0 +1,38 @@
+<form [formGroup]="formInput">
+  <ion-toolbar>
+    @if(isPage) {
+    <ion-buttons style="min-width: 100px" slot="secondary"> </ion-buttons>
+    } @else {
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+    }
+
+    <ion-segment formControlName="segmentType" style="padding: 0 2px">
+      <ion-segment-button [value]="segmentTypeEnum.CALENDAR">
+        <ion-label>{{ segmentTypeEnum.CALENDAR | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [value]="segmentTypeEnum.EXPIRED">
+        <ion-label>{{ segmentTypeEnum.EXPIRED | translate }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-buttons
+      style="min-width: 100px; display: flex; justify-content: flex-end"
+      slot="primary"
+    >
+      <ion-nav-link
+        router-direction="forward"
+        [component]="petSelectionPageComponent"
+      >
+        <ion-button>
+          <app-button-icon-circle>
+            <ng-container>
+              <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+            </ng-container>
+          </app-button-icon-circle>
+        </ion-button>
+      </ion-nav-link>
+    </ion-buttons>
+  </ion-toolbar>
+</form>

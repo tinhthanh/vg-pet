@@ -1,0 +1,55 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding add-pet-page-step3-content">
+  <div class="add-pet-page-step3-container">
+    <div class="add-pet-page-step3-content">
+      <img
+        class="add-pet-page-step3-img"
+        src="assets/img/img_10.png"
+        alt="image"
+      />
+
+      <div class="add-pet-page-step3-form">
+        <ion-row>
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <span class="add-pet-page-step3-form-label" >
+              {{ "ADD_PET.BREED" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <nz-select style="width: 100%;">
+              @for(typeOption of petTypeData; track typeOption) {
+                <nz-option [nzValue]="typeOption" [nzLabel]="typeOption | translate"></nz-option> 
+              }
+            </nz-select>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <span class="add-pet-page-step3-form-label" >
+              {{ "ADD_PET.COLOR" | translate }}
+            </span>
+          </ion-col>
+
+          <ion-col size="12" style="display: flex; justify-content: center">
+            <input nz-input style="width: 100%" />
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="add-pet-page-step3-buttons">
+        <ion-nav-link router-direction="forward" [component]="addPetPageStep4">
+          <ion-button>
+            {{ "BTN.CONTINUE" | translate }}
+          </ion-button>
+        </ion-nav-link>
+      </div>
+    </div>
+  </div>
+</ion-content>

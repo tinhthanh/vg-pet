@@ -1,0 +1,70 @@
+<app-setting-layout
+  [classMain]="'setting-about'"
+  [styles]="'align-items: flex-start;'"
+>
+  <ng-container content>
+    <div class="setting-about-header">
+      <div class="setting-about-avatar"></div>
+      <span>PetApp</span>
+      <span>V 1.0.0</span>
+    </div>
+
+    <div class="setting-about-content">
+      <div class="setting-about-card">
+        <div class="setting-about-card-header">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>
+            {{ "SOCIAL_NETWORK" | translate }}
+          </span>
+        </div>
+
+        <div class="setting-about-card-content">
+          <div class="setting-about-card-items">
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="globe-outline"></ion-icon>
+          </div>
+
+          <div class="setting-about-card-desc">
+            {{ "FOLLOW_SOCIAL_NETWORK" | translate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="setting-about-card">
+        <div class="setting-about-card-header">
+          <ion-icon name="happy-outline"></ion-icon>
+          <span>
+            {{ "SOCIAL_NETWORK" | translate }}
+          </span>
+        </div>
+
+        <div class="setting-about-card-content">
+          <div class="setting-about-card-items">
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </div>
+
+          <div class="setting-about-card-desc">
+            {{ "GROUP_TEXT" | translate : { name: "Nguyễn Văn Tèo" } }}
+          </div>
+        </div>
+      </div>
+
+      <div class="setting-about-card">
+        <div class="setting-about-card-header">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <span>
+            {{ "SOCIAL_NETWORK" | translate }}
+          </span>
+        </div>
+
+        <div class="setting-about-card-content">
+          <div class="setting-about-card-desc">
+            {{ "ABOUT_TEXT" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</app-setting-layout>

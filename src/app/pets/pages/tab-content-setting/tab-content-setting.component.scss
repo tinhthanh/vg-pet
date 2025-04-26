@@ -1,0 +1,34 @@
+.header {
+  height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-right: 20px;
+
+  &-avatar {
+    padding: 8px;
+    background-color: var(--yellow-color);
+    border-radius: 50%;
+    border: 1px solid #252525;
+    height: 50px;
+    width: 50px;
+
+    &-img {
+      height: 32px;
+      width: 32px;
+    }
+
+    &-url {
+      border-radius: 50%;
+      border: 1px solid #252525;
+      height: 50px;
+      width: 50px;
+
+      &.have-avatar-url {
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-vaccine-remind-page-content">
+  <div class="schedule-vaccine-remind-page-container">
+    <div class="schedule-vaccine-remind-page-content">
+      <div class="schedule-vaccine-remind-page-header">
+        <span class="schedule-vaccine-remind-page-header-title">
+          {{ "SCHEDULE.VACCINE.TITLE" | translate }}
+        </span>
+
+        <img
+          class="schedule-vaccine-remind-page-header-image"
+          src="assets/img/img_07.png"
+          alt="image"
+        />
+      </div>
+      <div class="schedule-vaccine-remind-page-form">
+        <div class="schedule-vaccine-remind-page-form-field">
+          <span class="schedule-vaccine-remind-page-form-field-label">
+            {{ "SCHEDULE.VACCINE.FIELD_VACCINE" | translate }}
+          </span>
+          <nz-select
+            style="width: 100%"
+            [(ngModel)]="formVaccineRemind.vaccine"
+          >
+            @for(vaccine of vaccineListOptions; track vaccine.code) {
+            <nz-option
+              [nzValue]="vaccine.code"
+              [nzLabel]="vaccine.label | translate"
+            ></nz-option>
+            }
+          </nz-select>
+        </div>
+
+        <div
+          class="schedule-vaccine-remind-page-form-field custom-secondary-color"
+        >
+          <span class="schedule-vaccine-remind-page-form-field-label">
+            {{ "SCHEDULE.VACCINE.FIELD_VACCINE_DATE" | translate }}
+          </span>
+          <nz-date-picker
+            style="width: 100%"
+            [(ngModel)]="formVaccineRemind.dateTime"
+            [nzShowTime]="{ nzFormat: 'HH:mm' }"
+            [nzFormat]="'dd/MM/yyyy HH:mm'"
+            [nzPlaceHolder]="'SCHEDULE.VACCINE.FIELD_VACCINE_DATE' | translate"
+          ></nz-date-picker>
+        </div>
+
+        <div
+          class="schedule-vaccine-remind-page-form-field custom-secondary-color"
+        >
+          <span class="schedule-vaccine-remind-page-form-field-label">
+            {{ "SCHEDULE.VACCINE.FIELD_VACCINE_EXPIRATION_DATE" | translate }}
+          </span>
+          <nz-date-picker
+            style="width: 100%"
+            [(ngModel)]="formVaccineRemind.expirationDate"
+            [nzShowTime]="{ nzFormat: 'HH:mm' }"
+            [nzFormat]="'dd/MM/yyyy HH:mm'"
+            [nzPlaceHolder]="'SCHEDULE.REPEAT_DATE_END_PLACEHOLDER' | translate"
+          ></nz-date-picker>
+        </div>
+
+        <div class="schedule-vaccine-remind-page-form-field">
+          <span class="schedule-vaccine-remind-page-form-field-label">
+            {{ "SCHEDULE.VACCINE.FIELD_VACCINE" | translate }}
+          </span>
+          <input
+            nz-input
+            [(ngModel)]="formVaccineRemind.description"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="schedule-vaccine-remind-page-form-field checkbox-remind">
+          <label nz-checkbox [(ngModel)]="formVaccineRemind.isRemind">
+            {{ "SCHEDULE.VACCINE.CREATE_REMIND" | translate }}
+          </label>
+        </div>
+      </div>
+
+      <div class="schedule-vaccine-remind-page-footer">
+        <ion-button (click)="submit()">
+          {{ "BTN.SAVE" | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

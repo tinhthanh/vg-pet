@@ -1,0 +1,36 @@
+<ion-menu
+  menuId="menu-setting"
+  type="push"
+  side="end"
+  contentId="menu-content-setting"
+>
+  <app-setting-menu
+    style="height: 100%"
+    [userProfile]="userProfile"
+  ></app-setting-menu>
+</ion-menu>
+
+<div class="ion-page" id="menu-content-setting">
+  <ion-header>
+    <div class="header setting" expand="block" (click)="openMenu()">
+      @if(!userProfile.avatarUrl) {
+      <div class="header-avatar">
+        <img
+          class="header-avatar-img"
+          src="assets/icons/ic-client.svg"
+          alt="Client"
+        />
+      </div>
+      } @else {
+      <div
+        class="header-avatar-url have-avatar-url"
+        [style]="'background-image: url(' + userProfile.avatarUrl + ');'"
+      ></div>
+      }
+    </div>
+  </ion-header>
+
+  <ion-content>
+    <router-outlet></router-outlet>
+  </ion-content>
+</div>

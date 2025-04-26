@@ -1,0 +1,219 @@
+<app-setting-layout [classMain]="'setting-customize'">
+  <ng-container content>
+    <form nz-form nzLayout="vertical" [formGroup]="formSetting">
+      <div class="setting-customize-header">
+        <div class="setting-customize-header-title">
+          <ion-icon name="options-outline"></ion-icon>
+          <span>{{ "THEME" | translate }}</span>
+        </div>
+      </div>
+
+      <div class="setting-customize-theme" formGroupName="theme">
+        <div nz-row>
+          <div nz-col [nzSpan]="24" class="setting-customize-theme-device">
+            <label
+              nz-checkbox
+              formControlName="isThemeDevice"
+              style="margin: 16px 0"
+            >
+              <span> {{ "USE_THEME_DEVICE" | translate }} </span>
+            </label>
+          </div>
+
+          <div nz-col [nzSpan]="24" class="setting-customize-theme-or">
+            <div class="setting-customize-theme-or-main">
+              <div class="setting-customize-theme-or-line"></div>
+              <div class="setting-customize-theme-or-text">
+                {{ "OR" | translate }}
+              </div>
+              <div class="setting-customize-theme-or-line"></div>
+            </div>
+          </div>
+
+          <div nz-col [nzSpan]="24" class="setting-customize-theme-switch">
+            <div class="setting-customize-theme-switch-main">
+              <div class="setting-customize-theme-switch-light">
+                <ion-icon
+                  style="font-size: 20px"
+                  name="sunny-outline"
+                ></ion-icon>
+              </div>
+              <div class="setting-customize-theme-switch-control">
+                <nz-switch
+                  formControlName="isDarkTheme"
+                  [nzDisabled]="isThemeDeviceControl.value"
+                ></nz-switch>
+              </div>
+              <div class="setting-customize-theme-switch-dark">
+                <ion-icon
+                  style="font-size: 20px"
+                  name="moon-outline"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="setting-customize-header">
+        <div class="setting-customize-header-title">
+          <ion-icon name="earth-outline"></ion-icon>
+          <span>{{ "LANGUAGES" | translate }}</span>
+        </div>
+      </div>
+
+      <nz-form-item class="m-16-0">
+        <nz-form-label>
+          {{ "LANGUAGE_LABEL" | translate : { length: languagesList.length } }}
+        </nz-form-label>
+        <nz-form-control>
+          <nz-select
+            [nzPlaceHolder]="'SELECT_OPTION' | translate"
+            formControlName="language"
+          >
+            @for (language of languagesList; track language) {
+            <nz-option
+              [nzValue]="language"
+              [nzLabel]="language | translate"
+            ></nz-option>
+            }
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <div class="setting-customize-header">
+        <div class="setting-customize-header-title">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <span>{{ "DATE_FORMAT" | translate }}</span>
+        </div>
+      </div>
+
+      <div formGroupName="dateFormat">
+        <nz-form-item class="m-16-0">
+          <nz-form-label>
+            {{
+              "CONFIG_DATE_LABEL"
+                | translate : { length: dateFormatList.length }
+            }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="format"
+            >
+              @for (format of dateFormatList; track format.value) {
+              <nz-option
+                [nzValue]="format.value"
+                [nzLabel]="format.value | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="m-16-0">
+          <nz-form-label>
+            {{
+              "START_DATE_WEEK_LABEL"
+                | translate : { length: startWeekList.length }
+            }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="startWeek"
+            >
+              @for (startWeek of startWeekList; track startWeek) {
+              <nz-option
+                [nzValue]="startWeek"
+                [nzLabel]="'WEEK_NUMBER.' + startWeek | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <div class="setting-customize-header">
+        <div class="setting-customize-header-title">
+          <ion-icon name="options-outline"></ion-icon>
+          <span>{{ "SYSTEM_OF_UNITS" | translate }}</span>
+        </div>
+      </div>
+
+      <div formGroupName="measurement">
+        <nz-form-item class="m-16-0">
+          <nz-form-label>
+            {{ "LENGTH_UNIT" | translate : { length: lengthUnitList.length } }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="lengthUnit"
+            >
+              @for (lengthUnit of lengthUnitList; track lengthUnit) {
+              <nz-option
+                [nzValue]="lengthUnit"
+                [nzLabel]="'LENGTH_UNIT_VALUE.' + lengthUnit | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="m-16-0">
+          <nz-form-label>
+            {{ "WEIGHT_UNIT" | translate : { length: weightUnitList.length } }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="weightUnit"
+            >
+              @for (weightUnit of weightUnitList; track weightUnit) {
+              <nz-option
+                [nzValue]="weightUnit"
+                [nzLabel]="'WEIGHT_UNIT_VALUE.' + weightUnit | translate"
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="m-16-0">
+          <nz-form-label>
+            {{
+              "TEMPERATURE_UNIT"
+                | translate : { length: temperatureUnitList.length }
+            }}
+          </nz-form-label>
+          <nz-form-control>
+            <nz-select
+              [nzPlaceHolder]="'SELECT_OPTION' | translate"
+              formControlName="temperatureUnit"
+            >
+              @for (temperatureUnit of temperatureUnitList; track
+              temperatureUnit) {
+              <nz-option
+                [nzValue]="temperatureUnit"
+                [nzLabel]="
+                  'TEMPERATURE_UNIT_VALUE.' + temperatureUnit | translate
+                "
+              ></nz-option>
+              }
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </form>
+  </ng-container>
+
+  <ng-container footer>
+    <div class="setting-customize-footer">
+      <ion-button color="light" (click)="reset()">
+        {{ "RESET" | translate }}
+      </ion-button>
+      <ion-button (click)="submit()">{{ "SAVE" | translate }}</ion-button>
+    </div>
+  </ng-container>
+</app-setting-layout>

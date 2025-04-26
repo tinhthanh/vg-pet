@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <form [formGroup]="formSchedule">
+    <app-schedule-header
+      formGroupName="header"
+      [formInput]="headerControl"
+      [isPage]="isPage"
+    ></app-schedule-header>
+  </form>
+</ion-header>
+
+<ion-content class="home-content">
+  @switch (segmentTypeControl.value) { @case (segmentScheduleEnum.CALENDAR) {
+  <ng-container [ngTemplateOutlet]="scheduleCalendarComponent"></ng-container>
+  } @case (segmentScheduleEnum.EXPIRED) {
+  <app-schedule-expired></app-schedule-expired>
+  } @default {
+  <ng-container [ngTemplateOutlet]="scheduleCalendarComponent"></ng-container>
+  }}
+</ion-content>
+
+<ng-template #scheduleCalendarComponent>
+  <app-schedule-calendar (onSelectEvent)="onSelectEvent($event)" >
+    <ion-nav-link
+      router-direction="forward"
+      [component]="petSelectionPageComponent"
+    >
+      <ion-button style="font-weight: 700">{{
+        "SCHEDULE.ADD_FIRST" | translate
+      }}</ion-button>
+    </ion-nav-link>
+  </app-schedule-calendar>
+</ng-template>

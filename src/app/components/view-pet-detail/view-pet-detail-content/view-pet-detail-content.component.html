@@ -1,0 +1,109 @@
+<div class="view-pet-detail-content">
+  <div class="view-pet-detail-content-nav">
+    <app-view-pet-detail-nav [petDetail]="petDetail" ></app-view-pet-detail-nav>
+  </div>
+  <div class="view-pet-detail-content-container">
+    <div class="view-pet-detail-content-list">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="view-pet-detail-content-title">
+            <span>{{ "VIEW_PET_DETAIL.PET_HABITS_TITLE" | translate }}</span>
+          </ion-col>
+          @for(habit of statsInfoViewPetDetail['habits']; track habit) {
+          <ion-col size="12" sizeMd="6" class="view-pet-detail-content-box">
+            <ion-nav-link
+              router-direction="forward"
+              [component]="habit.navTo"
+              [componentProps]="{
+                isPage: false
+              }"
+            >
+              <div class="view-pet-detail-content-item">
+                <div class="view-pet-detail-content-item-icon">
+                  <img [src]="habit.icon" [alt]="habit.alt" />
+                </div>
+                <span class="view-pet-detail-content-item-label">
+                  {{ habit.label ? ("SHORT_" + habit.label | translate) : "" }}
+                </span>
+              </div>
+            </ion-nav-link>
+          </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="view-pet-detail-content-list">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="view-pet-detail-content-title">
+            <span>{{ "VIEW_PET_DETAIL.PROFILE_TITLE" | translate }}</span>
+          </ion-col>
+          @for(profile of statsInfoViewPetDetail['profile']; track profile) {
+          <ion-col size="12" sizeMd="6" class="view-pet-detail-content-box">
+            <div class="view-pet-detail-content-item">
+              <div class="view-pet-detail-content-item-icon">
+                <img [src]="profile.icon" [alt]="profile.alt" />
+              </div>
+              <span class="view-pet-detail-content-item-label">
+                {{
+                  profile.label ? ("SHORT_" + profile.label | translate) : ""
+                }}
+              </span>
+            </div>
+          </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="view-pet-detail-content-list">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="view-pet-detail-content-title">
+            <span>{{ "VIEW_PET_DETAIL.FILE_TITLE" | translate }}</span>
+          </ion-col>
+          @for(file of statsInfoViewPetDetail['file']; track file) {
+          <ion-col size="12" sizeMd="6" class="view-pet-detail-content-box">
+            <div class="view-pet-detail-content-item">
+              <div class="view-pet-detail-content-item-icon">
+                <img [src]="file.icon" [alt]="file.alt" />
+              </div>
+              <span class="view-pet-detail-content-item-label">
+                {{ file.label ? ("SHORT_" + file.label | translate) : "" }}
+              </span>
+            </div>
+          </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    @if(petDetail) {
+    <div
+      class="view-pet-detail-content-list"
+      (click)="onClickViewPetDetailInfoPage()"
+    >
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="view-pet-detail-content-title">
+            <span>{{ "VIEW_PET_DETAIL.PROFILE_BOX_TITLE" | translate }}</span>
+          </ion-col>
+          <ion-col size="12" sizeMd="6" class="view-pet-detail-content-box">
+            <div class="view-pet-detail-content-item">
+              <img
+                class="view-pet-detail-content-item-avatar"
+                [src]="petDetail.avatarUrl"
+                [alt]="petDetail.avatarAlt"
+              />
+              <span class="view-pet-detail-content-item-label">
+                {{ petDetail.name || "" }}
+              </span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    }
+  </div>
+</div>

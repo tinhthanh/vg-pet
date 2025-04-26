@@ -1,0 +1,110 @@
+.view-pet-detail-save {
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+  
+    &-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  
+      &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+        gap: 8px;
+        color: var(--ion-text-secondary);
+        text-align: center;
+      }
+    }
+  
+    &-form {
+      min-width: 300px;
+      max-width: 450px;
+  
+      &-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ion-text-color-icon);
+        margin-bottom: 8px;
+      }
+  
+      &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ion-text-secondary);
+      }
+  
+      .radio-2 {
+        label {
+          gap: 8px;
+          color: var(--ion-text-secondary);
+        }
+      }
+  
+      form {
+        width: 100%;
+      }
+  
+      .control-radio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+  
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 20px;
+  
+      ion-button {
+        min-height: 2.5em;
+        font-weight: 700;
+        min-width: 92px;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .view-pet-detail-save {
+      &-container {
+        height: auto;
+      }
+  
+      &-header {
+        &-title {
+          font-size: 16px;
+        }
+      }
+
+      &-form {
+        &-label {
+          font-size: 12px;
+        }
+  
+        &-title {
+          font-size: 12px;
+        }
+  
+        .control-radio {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,49 @@
+<ion-header class="setting-header">
+  <div class="setting-header-container">
+    <div class="setting-header-avatar">
+      @if(!userProfile.avatarUrl) {
+      <img
+        class="setting-header-avatar-img"
+        src="assets/icons/ic-client.svg"
+        alt="Client"
+      />
+      } @else {
+      <div
+        class="pet-avatar have-avatar-url"
+        [style]="'background-image: url(' + userProfile.avatarUrl + ');'"
+      ></div>
+      }
+    </div>
+    <div class="camera-icon">
+      <ion-icon name="camera"></ion-icon>
+    </div>
+    <div class="setting-header-name">{{ fullname || "" }}</div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ul class="pet-menu" nz-menu nzMode="inline">
+    <ng-container
+      *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"
+    ></ng-container>
+    <ng-template #menuTpl let-menus>
+      @for (menu of menus; track menu) { @if (!menu.children) {
+      <li
+        nz-menu-item
+        [nzPaddingLeft]="24"
+        [nzDisabled]="menu.disabled"
+        [nzSelected]="menu.selected"
+        class="pet-menu-item"
+        nzMatchRouter
+      >
+        <a [routerLink]="menu.routerLink || []" class="pet-menu-item-content">
+          <ion-icon [name]="menu.icon"></ion-icon>
+          <span class="pet-menu-item-content-title">
+            {{ menu.title || "" | translate }}
+          </span>
+        </a>
+      </li>
+      } }
+    </ng-template>
+  </ul>
+</ion-content>

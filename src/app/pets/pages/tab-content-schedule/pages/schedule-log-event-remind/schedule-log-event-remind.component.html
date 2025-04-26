@@ -1,0 +1,58 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding schedule-log-event-remind-content">
+  <div class="schedule-log-event-remind-container">
+    <div class="schedule-log-event-remind-content">
+      <div class="schedule-log-event-remind-header">
+        <img
+          class="schedule-log-event-remind-header-image"
+          src="assets/img/img_05.png"
+          alt="image"
+        />
+      </div>
+
+      <div class="schedule-log-event-remind-form">
+        <div class="schedule-log-event-remind-form-field">
+          <span class="schedule-log-event-remind-form-field-label">
+            {{ "SCHEDULE.FIELD_EVENT" | translate }}
+          </span>
+          <input
+            nz-input
+            [(ngModel)]="formLogEventRemind.fieldEvent"
+            style="width: 100%"
+            [placeholder]="'SCHEDULE.FIELD_EVENT_PLACEHOLDER' | translate"
+          />
+        </div>
+
+        <div
+          class="schedule-log-event-remind-form-field custom-secondary-color"
+        >
+          <span class="schedule-log-event-remind-form-field-label">
+            {{ "SCHEDULE.DATE_TIME" | translate }}
+          </span>
+          <nz-date-picker
+            style="width: 100%"
+            [(ngModel)]="formLogEventRemind.dateTime"
+            [nzShowTime]="{ nzFormat: 'HH:mm' }"
+            [nzFormat]="'dd/MM/yyyy HH:mm'"
+            [nzPlaceHolder]="'SCHEDULE.DATE_TIME' | translate"
+          ></nz-date-picker>
+        </div>
+      </div>
+
+      <app-upload-file label="SCHEDULE.UPLOAD_PICTURE" [styles]="''" ></app-upload-file>
+
+      <div class="schedule-log-event-remind-footer">
+        <ion-button (click)="submit()">
+          {{ "BTN.SAVE" | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

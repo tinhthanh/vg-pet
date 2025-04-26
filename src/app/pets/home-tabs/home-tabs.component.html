@@ -1,0 +1,27 @@
+<ion-tabs (ionTabsWillChange)="onTabChange($event)" class="home-tab">
+  <ion-tab-bar slot="bottom" class="home-tab-bar">
+    <ion-tab-button
+      [tab]="route.TAB_1"
+    >
+      <ion-icon [name]="'paw-outline'"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button
+      [tab]="route.TAB_2"
+    >
+      <ion-icon [name]="'calendar-outline'"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button
+      [tab]="route.TAB_3"
+    >
+      <ion-icon [name]="'library-outline'"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button
+      [tab]="route.TAB_4"
+    >
+      <ion-icon [name]="'settings-outline'"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

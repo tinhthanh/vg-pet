@@ -1,0 +1,50 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <form [formGroup]="formControlHome">
+    <app-home-header
+      formGroupName="header"
+      [formInput]="headerControl"
+    ></app-home-header>
+  </form>
+</ion-header>
+
+<ion-content class="ion-padding home-content">
+  @switch (segmentTypeControl.value) { @case (segmentTypeEnum.DISPLAY) {
+  <ng-container>
+    @if(isShowSearch) {
+    <div class="home-content-search" @slideInOut>
+      <form [formGroup]="formControlHome">
+        <ion-searchbar
+          formControlName="search"
+          show-clear-button="never"
+          placeholder="Search"
+        ></ion-searchbar>
+      </form>
+    </div>
+    <ng-container>
+      @if(petListSearch && petListSearch.length > 0) {
+      <app-home-pet-list
+        [petList]="petListSearch"
+        [statsInfo]="statsInfo()"
+        (oClickCard)="onClickCard($event)"
+      ></app-home-pet-list>
+      } @else {
+      <div class="home-content-not-found">
+        <span>
+          {{ "SEARCH_PET_NOT_FOUND" | translate }}
+          "{{ searchControl.value || "" }}"
+        </span>
+      </div>
+      }
+    </ng-container>
+    } @else {
+    <app-home-pet-list
+      [petList]="petList()"
+      [statsInfo]="statsInfo()"
+      (oClickCard)="onClickCard($event)"
+    ></app-home-pet-list>
+    }
+  </ng-container>
+  } @case (segmentTypeEnum.HIDDEN) {
+  <ng-container></ng-container>
+  } }
+</ion-content>
